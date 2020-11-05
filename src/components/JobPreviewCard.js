@@ -1,55 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
+import DateRangeIcon from "@material-ui/icons/DateRange";
+import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+
+import Tag from "./Tag";
+import IconWithText from "./IconWithText";
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
+    width: "100%",
   },
   title: {
-    fontSize: 14,
+    fontSize: 18,
+    fontWeight: theme.typography.fontWeightBold,
+    display: "-webkit-box",
+    "-webkit-line-clamp": 1,
+    "-webkit-box-orient": "vertical",
+    overflow: "hidden",
   },
-  pos: {
-    marginBottom: 12,
+  description: {
+    display: "-webkit-box",
+    "-webkit-line-clamp": 2,
+    "-webkit-box-orient": "vertical",
+    overflow: "hidden",
   },
-});
+}));
 
-export default function JobPreviewCard() {
+export default function JobPreviewCard({ job }) {
   const classes = useStyles();
+  const [isLiked, setIsLiked] = useState(false);
+
+  const {
+    title,
+    description,
+    tags,
+    salary,
+    commitment,
+    duration,
+    location,
+  } = job;
 
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
+        <Grid
+          container
+          wrap="nowrap"
+          alignItems="center"
+          justify="space-between"
         >
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+          <Typography
+            component={Grid}
+            item
+            className={classes.title}
+            gutterBottom
+          >
+            {title}
+          </Typography>
+          <Grid item>
+            <IconButton onClick={() => setIsLiked(!isLiked)}>
+              {isLiked ? (
+                <FavoriteIcon style={{ color: "#c30000" }} />
+              ) : (
+                <FavoriteBorderIcon />
+              )}
+            </IconButton>
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={2} direction="column">
+          <Grid item>
+            <Typography
+              className={classes.description}
+              variant="body2"
+              component="p"
+              gutterBottom
+            >
+              {description}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Grid container spacing={1}>
+              {tags.map((tag) => (
+                <Grid item key={tag}>
+                  <Tag label={tag} variant="outlined" />
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid container wrap="nowrap">
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  gutterBottom
+                  IconComponent={<AttachMoneyIcon />}
+                >
+                  {salary}
+                </IconWithText>
+              </Grid>
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  gutterBottom
+                  IconComponent={<QueryBuilderIcon />}
+                >
+                  {commitment}
+                </IconWithText>
+              </Grid>
+            </Grid>
+            <Grid container wrap="nowrap">
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  gutterBottom
+                  IconComponent={<DateRangeIcon />}
+                >
+                  {duration}
+                </IconWithText>
+              </Grid>
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  gutterBottom
+                  IconComponent={<RoomOutlinedIcon />}
+                >
+                  {location}
+                </IconWithText>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }

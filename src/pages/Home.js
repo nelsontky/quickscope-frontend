@@ -15,8 +15,12 @@ import { splitCamelCase } from "../utils/general-utils";
 import db from "../db.json";
 
 const searchFilters = db.filters;
+const jobs = db.jobs;
 
 const useStyles = makeStyles((theme) => ({
+  resultsContainer: {
+    marginTop: theme.spacing(3),
+  },
   searchBar: {
     maxWidth: "994px",
     margin: "0 auto",
@@ -77,7 +81,14 @@ export default function Home() {
           </Grid>
         ))}
       </Grid>
-      <JobPreviewCard />
+
+      <Grid container spacing={8} className={classes.resultsContainer}>
+        {jobs.map((job, i) => (
+          <Grid item xs={4} key={i}>
+            <JobPreviewCard job={job} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 }
