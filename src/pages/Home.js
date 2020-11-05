@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 
 // Custom components
 import FilterDropdown from "../components/FilterDropdown";
+import JobPreviewCard from "../components/JobPreviewCard";
 import SearchBar from "../components/SearchBar";
 
 import { splitCamelCase } from "../utils/general-utils";
@@ -76,6 +77,7 @@ export default function Home() {
           </Grid>
         ))}
       </Grid>
+      <JobPreviewCard />
     </Box>
   );
 }
