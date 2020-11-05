@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/quickscope-frontend/static/js/main.1b053c80.chunk.js",
+    "main.js.map": "/quickscope-frontend/static/js/main.1b053c80.chunk.js.map",
+    "runtime-main.js": "/quickscope-frontend/static/js/runtime-main.edd91e49.js",
+    "runtime-main.js.map": "/quickscope-frontend/static/js/runtime-main.edd91e49.js.map",
+    "static/js/2.f5e5c2ae.chunk.js": "/quickscope-frontend/static/js/2.f5e5c2ae.chunk.js",
+    "static/js/2.f5e5c2ae.chunk.js.map": "/quickscope-frontend/static/js/2.f5e5c2ae.chunk.js.map",
+    "index.html": "/quickscope-frontend/index.html",
+    "static/js/2.f5e5c2ae.chunk.js.LICENSE.txt": "/quickscope-frontend/static/js/2.f5e5c2ae.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.edd91e49.js",
+    "static/js/2.f5e5c2ae.chunk.js",
+    "static/js/main.1b053c80.chunk.js"
+  ]
+}
