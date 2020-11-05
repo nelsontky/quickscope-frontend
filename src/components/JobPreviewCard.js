@@ -20,6 +20,9 @@ import IconWithText from "./IconWithText";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    boxShadow: theme.shadows[0],
+    border: `2px solid ${theme.palette.primary.main}`,
+    borderRadius: 8,
   },
   title: {
     fontSize: 18,
