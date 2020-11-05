@@ -1,0 +1,10 @@
+{
+  "filters": {
+    "skills": ["React", "React Native", "Flutter", "Swift"],
+    "jobType": ["Full Time", "Part Time"],
+    "location": ["Singapore", "Vietnam", "Indonesia"],
+    "salary": ["< 1000", "between 1000 to 3000", "> 3000"],
+    "commitment": ["1 - 3 months", "1 -2 years", "> 2 years"],
+    "experience": ["Entry Level", "Experienced"]
+  }
+}

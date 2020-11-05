@@ -67,27 +67,21 @@ export default function TopBar() {
           <nav>
             <Typography
               component={Link}
-              to="/owner"
-              variant="button"
-              color="textPrimary"
+              to="/applications"
               className={classes.link}
             >
               My Applications
             </Typography>
             <Typography
               component={Link}
-              to="/caretaker"
-              variant="button"
-              color="textPrimary"
+              to="/listings"
               className={classes.link}
             >
               My Listings
             </Typography>
             <Typography
               component={Link}
-              to="/caretaker"
-              variant="button"
-              color="textPrimary"
+              to="/portfolio"
               className={classes.link}
             >
               My Portfolio
@@ -97,9 +91,6 @@ export default function TopBar() {
           <IconButton
             component={Link}
             to="/profile"
-            color="primary"
-            variant="outlined"
-            className={classes.link}
           >
             <PersonIcon style={{ color: "white" }} />
           </IconButton>
