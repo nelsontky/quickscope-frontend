@@ -8,13 +8,20 @@ export default function IconWithText({
   IconComponent,
   children,
   className,
+  swapOrder,
   ...rest
 }) {
   return (
-    <Grid container spacing={1} wrap="nowrap" alignItems="center">
+    <Grid
+      container
+      spacing={1}
+      wrap="nowrap"
+      alignItems="center"
+      direction={swapOrder ? "row-reverse" : "row"}
+    >
       <Grid item>{React.cloneElement(IconComponent)}</Grid>
       <Grid item>
-        <Typography {...rest} className={className}>
+        <Typography {...rest} className={className} gutterBottom>
           {children}
         </Typography>
       </Grid>

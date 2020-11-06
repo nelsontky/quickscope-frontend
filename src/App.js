@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 
 // Custom components
 import TopBar from "./components/TopBar";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Pages
 import Home from "./pages/Home";
@@ -27,14 +28,16 @@ function App() {
       <CssBaseline />
       <TopBar />
       <Container className={classes.root} fixed>
-        <Switch>
-          <Route exact path="/job/:id">
-            <JobListing />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <ErrorBoundary>
+          <Switch>
+            <Route exact path="/jobs/:id">
+              <JobListing />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </ErrorBoundary>
       </Container>
     </>
   );

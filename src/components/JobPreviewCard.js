@@ -113,7 +113,6 @@ export default function JobPreviewCard({ job }) {
               <Grid item xs={6}>
                 <IconWithText
                   variant="body2"
-                  gutterBottom
                   IconComponent={<AttachMoneyIcon />}
                 >
                   {salary}
@@ -122,7 +121,6 @@ export default function JobPreviewCard({ job }) {
               <Grid item xs={6}>
                 <IconWithText
                   variant="body2"
-                  gutterBottom
                   IconComponent={<QueryBuilderIcon />}
                 >
                   {commitment}
@@ -133,7 +131,6 @@ export default function JobPreviewCard({ job }) {
               <Grid item xs={6}>
                 <IconWithText
                   variant="body2"
-                  gutterBottom
                   IconComponent={<DateRangeIcon />}
                 >
                   {period}
@@ -142,7 +139,6 @@ export default function JobPreviewCard({ job }) {
               <Grid item xs={6}>
                 <IconWithText
                   variant="body2"
-                  gutterBottom
                   IconComponent={<RoomOutlinedIcon />}
                 >
                   {location}

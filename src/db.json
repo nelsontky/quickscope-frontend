@@ -9,64 +9,82 @@
   },
   "jobs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "CRA to NextJS Migration Long Title Testing LOL HAHAHHA",
       "description": "Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
       "period": "1 week",
-      "location": "Singapore"
+      "location": "Singapore",
+      "vacancies": "2",
+      "applications": "4",
+      "otherInformation": "<div> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div>"
     }
   ]
 }
