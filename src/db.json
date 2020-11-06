@@ -9,57 +9,63 @@
   },
   "jobs": [
     {
+      "id": 1,
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     },
     {
+      "id": 2,
       "title": "CRA to NextJS Migration Long Title Testing LOL HAHAHHA",
       "description": "Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     },
     {
+      "id": 3,
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     },
     {
+      "id": 4,
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     },
     {
+      "id": 5,
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     },
     {
+      "id": 6,
       "title": "CRA to NextJS Migration",
       "description": "Port a CRA project with react-snap and custom packages to NextJS.",
       "tags": ["NextJS", "JavaScript", "React"],
       "salary": "35 / hour",
       "commitment": "30 hours / week",
-      "duration": "1 week",
+      "period": "1 week",
       "location": "Singapore"
     }
   ]

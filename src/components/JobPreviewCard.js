@@ -53,7 +53,7 @@ export default function JobPreviewCard({ job }) {
     tags,
     salary,
     commitment,
-    duration,
+    period,
     location,
   } = job;
 
@@ -136,7 +136,7 @@ export default function JobPreviewCard({ job }) {
                   gutterBottom
                   IconComponent={<DateRangeIcon />}
                 >
-                  {duration}
+                  {period}
                 </IconWithText>
               </Grid>
               <Grid item xs={6}>

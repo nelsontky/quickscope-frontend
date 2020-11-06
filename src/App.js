@@ -11,6 +11,7 @@ import TopBar from "./components/TopBar";
 
 // Pages
 import Home from "./pages/Home";
+import JobListing from "./pages/JobListing";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,9 @@ function App() {
       <TopBar />
       <Container className={classes.root} fixed>
         <Switch>
+          <Route exact path="/job/:id">
+            <JobListing />
+          </Route>
           <Route exact path="/">
             <Home />
           </Route>

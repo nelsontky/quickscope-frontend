@@ -6,6 +6,10 @@ import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 // Custom components
 import FilterDropdown from "../components/FilterDropdown";
@@ -39,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
   chipsContainer: {
     marginTop: theme.spacing(2),
   },
+  sort: {
+    margin: theme.spacing(1),
+    minWidth: 155,
+  },
 }));
 
 export default function Home() {
@@ -52,6 +60,8 @@ export default function Home() {
     commitment: [],
     experience: [],
   });
+
+  const [sortBy, setSortBy] = useState("");
 
   const changeFilters = (name) => (e) => {
     setFilters({ ...filters, [name]: e.target.value });
@@ -119,6 +129,30 @@ export default function Home() {
           )}
         </Grid>
       </Collapse>
+
+      <Grid container justify="flex-end">
+        <Grid item>
+          <FormControl variant="outlined" className={classes.sort}>
+            <InputLabel id="demo-simple-select-outlined-label">
+              Sort By
+            </InputLabel>
+            <Select
+              value={sortBy}
+              onChange={(e) => {
+                setSortBy(e.target.value);
+              }}
+              label="Sort By"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="Salary">Salary</MenuItem>
+              <MenuItem value="Commitment">Commitment</MenuItem>
+              <MenuItem value="period">Period</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
 
       <Grid container spacing={8} className={classes.resultsContainer}>
         {jobs.map((job, i) => (
