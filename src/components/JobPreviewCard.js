@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     border: `2px solid ${theme.palette.primary.main}`,
     borderRadius: 8,
   },
+  favorite: {
+    color: theme.palette.primary.main,
+  },
   title: {
     fontSize: 18,
     fontWeight: theme.typography.fontWeightBold,
@@ -72,11 +75,14 @@ export default function JobPreviewCard({ job }) {
             {title}
           </Typography>
           <Grid item>
-            <IconButton onClick={() => setIsLiked(!isLiked)}>
+            <IconButton size="small" onClick={() => setIsLiked(!isLiked)}>
               {isLiked ? (
-                <FavoriteIcon style={{ color: "#c30000" }} />
+                <FavoriteIcon fontSize="large" style={{ color: "#c30000" }} />
               ) : (
-                <FavoriteBorderIcon />
+                <FavoriteBorderIcon
+                  className={classes.favorite}
+                  fontSize="large"
+                />
               )}
             </IconButton>
           </Grid>
