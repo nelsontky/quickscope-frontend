@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
-import Collapse from "@material-ui/core/Collapse";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 // Custom components
-import FilterDropdown from "../components/FilterDropdown";
-import JobPreviewCard from "../components/JobPreviewCard";
-import SearchBar from "../components/SearchBar";
-import Tag from "../components/Tag";
 import IconWithText from "../components/IconWithText";
+import JobHeader from "../components/job-listing/JobHeader";
+import PurpleCard from "../components/PurpleCard";
 
-import { splitCamelCase } from "../utils/general-utils";
 import db from "../db.json";
 
 const jobs = db.jobs;
@@ -46,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   chipsContainer: {
     marginTop: theme.spacing(2),
   },
+  primaryColor: {
+    color: theme.palette.primary.main,
+  },
 }));
 
 export default function Home() {
@@ -53,47 +53,72 @@ export default function Home() {
   const { id } = useParams();
 
   const job = jobs.find((job) => job.id === id);
+  const hasNext =
+    jobs.findIndex((job) => job.id === parseInt(id) + 1 + "") > -1;
+  const hasPrevious =
+    jobs.findIndex((job) => job.id === parseInt(id) - 1 + "") > -1;
 
-  const {
-    title,
-    description,
-    tags,
-    salary,
-    commitment,
-    period,
-    location,
-    vacancies,
-    applications,
-    otherInformation,
-  } = job;
+  const { otherInformation } = job;
 
   return (
-    <Box>
-      <Grid container direction="column">
-        <Grid
-          container
-          item
-          alignItems="baseline"
-          justify="space-between"
-          wrap="nowrap"
-        >
-          <Grid item xs={3}>
-            <IconWithText IconComponent={<ChevronLeftIcon />}>
-              Previous job
-            </IconWithText>
-          </Grid>
-          <Grid item xs={6} className={classes.headerContainer}>
-            <Typography className={classes.headerText} variant="h4">
-              Job Listing
-            </Typography>
-          </Grid>
-          <Grid item xs={3}>
-            <IconWithText IconComponent={<ChevronRightIcon />} swapOrder>
-              Next job
-            </IconWithText>
-          </Grid>
+    <Grid container direction="column" spacing={3}>
+      <Grid
+        container
+        item
+        alignItems="baseline"
+        justify="space-between"
+        wrap="nowrap"
+      >
+        <Grid item xs={3}>
+          {hasPrevious && (
+            <Link
+              className={classes.primaryColor}
+              to={`/jobs/${parseInt(id) - 1}`}
+            >
+              <IconWithText
+                IconComponent={
+                  <ChevronLeftIcon className={classes.primaryColor} />
+                }
+              >
+                Previous job
+              </IconWithText>
+            </Link>
+          )}
+        </Grid>
+        <Grid item xs={6} className={classes.headerContainer}>
+          <Typography className={classes.headerText} variant="h4">
+            Job Listing
+          </Typography>
+        </Grid>
+        <Grid item xs={3}>
+          {hasNext && (
+            <Link
+              className={classes.primaryColor}
+              to={`/jobs/${parseInt(id) + 1}`}
+            >
+              <IconWithText
+                IconComponent={
+                  <ChevronRightIcon className={classes.primaryColor} />
+                }
+                swapOrder
+              >
+                Next job
+              </IconWithText>
+            </Link>
+          )}
         </Grid>
       </Grid>
-    </Box>
+
+      <Grid item>
+        <JobHeader job={job} />
+      </Grid>
+      <Grid item>
+        <PurpleCard>
+          <CardContent>
+            <Box dangerouslySetInnerHTML={{ __html: otherInformation }} />
+          </CardContent>
+        </PurpleCard>
+      </Grid>
+    </Grid>
   );
 }

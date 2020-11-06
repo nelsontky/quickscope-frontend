@@ -13,13 +13,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import PersonIcon from "@material-ui/icons/Person";
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: "none",
-    },
-  },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
     zIndex: theme.zIndex.drawer + 1,

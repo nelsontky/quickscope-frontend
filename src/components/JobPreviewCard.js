@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
-import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -16,13 +16,14 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import Tag from "./Tag";
 import IconWithText from "./IconWithText";
+import PurpleCard from "./PurpleCard";
 
 const useStyles = makeStyles((theme) => ({
+  link: {
+    textDecoration: "none",
+  },
   root: {
     width: "100%",
-    boxShadow: theme.shadows[0],
-    border: `2px solid ${theme.palette.primary.main}`,
-    borderRadius: 8,
   },
   favorite: {
     color: theme.palette.primary.main,
@@ -48,6 +49,7 @@ export default function JobPreviewCard({ job }) {
   const [isLiked, setIsLiked] = useState(false);
 
   const {
+    id,
     title,
     description,
     tags,
@@ -58,96 +60,104 @@ export default function JobPreviewCard({ job }) {
   } = job;
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Grid
-          container
-          wrap="nowrap"
-          alignItems="center"
-          justify="space-between"
-        >
-          <Typography
-            component={Grid}
-            item
-            className={classes.title}
-            gutterBottom
+    <Link to={`/jobs/${id}`} className={classes.link}>
+      <PurpleCard className={classes.root}>
+        <CardContent>
+          <Grid
+            container
+            wrap="nowrap"
+            alignItems="center"
+            justify="space-between"
           >
-            {title}
-          </Typography>
-          <Grid item>
-            <IconButton size="small" onClick={() => setIsLiked(!isLiked)}>
-              {isLiked ? (
-                <FavoriteIcon fontSize="large" style={{ color: "#c30000" }} />
-              ) : (
-                <FavoriteBorderIcon
-                  className={classes.favorite}
-                  fontSize="large"
-                />
-              )}
-            </IconButton>
-          </Grid>
-        </Grid>
-
-        <Grid container spacing={2} direction="column">
-          <Grid item>
             <Typography
-              className={classes.description}
-              variant="body2"
-              component="p"
+              component={Grid}
+              item
+              className={classes.title}
               gutterBottom
             >
-              {description}
+              {title}
             </Typography>
+            <Grid item>
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsLiked(!isLiked);
+                }}
+              >
+                {isLiked ? (
+                  <FavoriteIcon fontSize="large" style={{ color: "#c30000" }} />
+                ) : (
+                  <FavoriteBorderIcon
+                    className={classes.favorite}
+                    fontSize="large"
+                  />
+                )}
+              </IconButton>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Grid container spacing={1}>
-              {tags.map((tag) => (
-                <Grid item key={tag}>
-                  <Tag label={tag} variant="outlined" />
+
+          <Grid container spacing={2} direction="column">
+            <Grid item>
+              <Typography
+                className={classes.description}
+                variant="body2"
+                component="p"
+                gutterBottom
+              >
+                {description}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Grid container spacing={1}>
+                {tags.map((tag) => (
+                  <Grid item key={tag}>
+                    <Tag label={tag} variant="outlined" />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid container wrap="nowrap">
+                <Grid item xs={6}>
+                  <IconWithText
+                    variant="body2"
+                    IconComponent={<AttachMoneyIcon />}
+                  >
+                    {salary}
+                  </IconWithText>
                 </Grid>
-              ))}
-            </Grid>
-          </Grid>
-          <Grid item>
-            <Grid container wrap="nowrap">
-              <Grid item xs={6}>
-                <IconWithText
-                  variant="body2"
-                  IconComponent={<AttachMoneyIcon />}
-                >
-                  {salary}
-                </IconWithText>
+                <Grid item xs={6}>
+                  <IconWithText
+                    variant="body2"
+                    IconComponent={<QueryBuilderIcon />}
+                  >
+                    {commitment}
+                  </IconWithText>
+                </Grid>
               </Grid>
-              <Grid item xs={6}>
-                <IconWithText
-                  variant="body2"
-                  IconComponent={<QueryBuilderIcon />}
-                >
-                  {commitment}
-                </IconWithText>
-              </Grid>
-            </Grid>
-            <Grid container wrap="nowrap">
-              <Grid item xs={6}>
-                <IconWithText
-                  variant="body2"
-                  IconComponent={<DateRangeIcon />}
-                >
-                  {period}
-                </IconWithText>
-              </Grid>
-              <Grid item xs={6}>
-                <IconWithText
-                  variant="body2"
-                  IconComponent={<RoomOutlinedIcon />}
-                >
-                  {location}
-                </IconWithText>
+              <Grid container wrap="nowrap">
+                <Grid item xs={6}>
+                  <IconWithText
+                    variant="body2"
+                    IconComponent={<DateRangeIcon />}
+                  >
+                    {period}
+                  </IconWithText>
+                </Grid>
+                <Grid item xs={6}>
+                  <IconWithText
+                    variant="body2"
+                    IconComponent={<RoomOutlinedIcon />}
+                  >
+                    {location}
+                  </IconWithText>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </PurpleCard>
+    </Link>
   );
 }

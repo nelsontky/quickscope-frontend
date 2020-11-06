@@ -25,7 +25,7 @@ const jobs = db.jobs;
 
 const useStyles = makeStyles((theme) => ({
   resultsContainer: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
   searchBar: {
     maxWidth: "994px",
