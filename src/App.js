@@ -13,6 +13,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 // Pages
 import Home from "./pages/Home";
 import JobListing from "./pages/JobListing";
+import NotFound from "./pages/404";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route>
+              <NotFound />
             </Route>
           </Switch>
         </ErrorBoundary>
