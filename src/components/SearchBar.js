@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
+    border: `2px solid ${theme.palette.primary.main}`
   },
   input: {
     marginLeft: theme.spacing(1),

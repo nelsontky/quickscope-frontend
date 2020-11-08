@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
   chipsContainer: {
     marginTop: theme.spacing(2),
+    maxWidth: "994px",
+    margin: "0 auto",
   },
   sort: {
     margin: theme.spacing(1),
