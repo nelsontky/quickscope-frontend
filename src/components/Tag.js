@@ -13,17 +13,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Tag({ label, variant, ...rest }) {
+export default function Tag({ label, variant, onDelete, ...rest }) {
   const classes = useStyles();
 
   return (
     <Chip
-      {...rest}
+      {...{ onDelete, ...rest }}
       className={clsx(classes.chip, rest.className)}
       label={label}
       variant={variant}
       color="primary"
-      deleteIcon={<ClearIcon />}
+      deleteIcon={onDelete && <ClearIcon />}
     />
   );
 }

@@ -7,6 +7,12 @@
     "commitment": ["1 - 3 months", "1 -2 years", "> 2 years"],
     "experience": ["Entry Level", "Experienced"]
   },
+  "profile": {
+    "name": "Nelson Tan",
+    "description": "I am an NUS student studying CS with 2 years of experience coding!",
+    "location": "Singapore",
+    "techStack": ["Bootstrap", "NodeJS", "Express", "CSS", "HTML5", "NextJS", "React"]
+  },
   "jobs": [
     {
       "id": "1",
