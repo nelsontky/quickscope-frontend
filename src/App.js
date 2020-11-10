@@ -11,6 +11,7 @@ import TopBar from "./components/TopBar";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 // Pages
+import Applications from "./pages/Applications";
 import Home from "./pages/Home";
 import JobListing from "./pages/JobListing";
 import NotFound from "./pages/404";
@@ -32,11 +33,14 @@ function App() {
       <Container className={classes.root} fixed>
         <ErrorBoundary>
           <Switch>
+            <Route exact path="/jobs/:id">
+              <JobListing />
+            </Route>
             <Route exact path="/portfolio">
               <Portfolio />
             </Route>
-            <Route exact path="/jobs/:id">
-              <JobListing />
+            <Route exact path="/applications">
+              <Applications />
             </Route>
             <Route exact path="/">
               <Home />
