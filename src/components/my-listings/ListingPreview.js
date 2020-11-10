@@ -5,17 +5,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
 
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
-import SearchIcon from "@material-ui/icons/Search";
-import TouchAppOutlinedIcon from "@material-ui/icons/TouchAppOutlined";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import PurpleCard from "../PurpleCard";
@@ -49,6 +47,13 @@ const useStyles = makeStyles((theme) => ({
   dialog: {
     paddingBottom: theme.spacing(5),
   },
+  large: {
+    width: theme.spacing(11),
+    height: theme.spacing(11),
+  },
+  marginBottom: {
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 export default function ListingPreview({
@@ -70,8 +75,6 @@ export default function ListingPreview({
     location,
     completed,
     inProgress,
-    offers,
-    views,
   } = listingFields;
 
   return (
@@ -97,12 +100,24 @@ export default function ListingPreview({
             <Grid container spacing={2} direction="column">
               <Grid item>
                 <Typography variant="body2" component="p" gutterBottom>
-                  {description}
+                  {`${
+                    tabIndex === 2
+                      ? "For " + completed[index].name + " - "
+                      : tabIndex === 1
+                      ? "For " + inProgress[index].name + " - "
+                      : ""
+                  }${
+                    tabIndex === 2
+                      ? completed[index].description
+                      : tabIndex === 1
+                      ? inProgress[index].description
+                      : description
+                  }`}
                 </Typography>
               </Grid>
               <Grid item>
                 <Grid container wrap="nowrap" spacing={1}>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <IconWithText
                       variant="body2"
                       IconComponent={<AttachMoneyIcon />}
@@ -110,7 +125,7 @@ export default function ListingPreview({
                       {`Budget: ${budget}`}
                     </IconWithText>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <IconWithText
                       variant="body2"
                       IconComponent={<QueryBuilderIcon />}
@@ -120,7 +135,7 @@ export default function ListingPreview({
                   </Grid>
                 </Grid>
                 <Grid container wrap="nowrap" spacing={1}>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <IconWithText
                       variant="body2"
                       IconComponent={<DateRangeIcon />}
@@ -128,7 +143,7 @@ export default function ListingPreview({
                       {`Period: ${period}`}
                     </IconWithText>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <IconWithText
                       variant="body2"
                       IconComponent={<RoomOutlinedIcon />}
@@ -164,38 +179,53 @@ function ListingAction({
 }) {
   const classes = useStyles();
   const [isComplete, setIsComplete] = useState(false);
+  const [isOffer, setIsOffer] = useState(false);
 
   const { views, completed, inProgress, offers } = listing;
 
   if (tabIndex === 0) {
     return (
-      <Grid container direction="column">
-        <Grid item className={classes.center}>
-          <IconWithText justify="center" IconComponent={<VisibilityIcon />}>
-            {`${views} views`}
-          </IconWithText>
-        </Grid>
+      <>
+        <ViewOfferDialog
+          isOpen={isOffer}
+          close={() => {
+            setIsOffer(false);
+          }}
+          listing={listing}
+          setTabIndex={setTabIndex}
+        />
+        <Grid container direction="column">
+          <Grid item className={classes.center}>
+            <IconWithText justify="center" IconComponent={<VisibilityIcon />}>
+              {`${views} views`}
+            </IconWithText>
+          </Grid>
 
-        {completed.length > 0 && (
-          <Grid item className={classes.center}>
-            <Typography className={clsx(classes.green, classes.status)}>
-              {`${completed.length} completed`}
-            </Typography>
-          </Grid>
-        )}
-        {inProgress.length > 0 && (
-          <Grid item className={classes.center}>
-            <Typography className={clsx(classes.yellow, classes.status)}>
-              {`${inProgress.length} in progress`}
-            </Typography>
-          </Grid>
-        )}
-        {offers.length > 0 && (
-          <Grid item className={classes.center}>
-            <GreenButton>{`${offers.length} new offers`}</GreenButton>
-          </Grid>
-        )}
-      </Grid>
+          {completed.length > 0 && (
+            <Grid item className={classes.center}>
+              <Typography className={clsx(classes.green, classes.status)}>
+                {`${completed.length} completed`}
+              </Typography>
+            </Grid>
+          )}
+          {inProgress.length > 0 && (
+            <Grid item className={classes.center}>
+              <Typography className={clsx(classes.yellow, classes.status)}>
+                {`${inProgress.length} in progress`}
+              </Typography>
+            </Grid>
+          )}
+          {offers.length > 0 && (
+            <Grid item className={classes.center}>
+              <GreenButton
+                onClick={() => {
+                  setIsOffer(true);
+                }}
+              >{`${offers.length} new offers`}</GreenButton>
+            </Grid>
+          )}
+        </Grid>
+      </>
     );
   }
 
@@ -247,19 +277,152 @@ function ListingAction({
   return null;
 }
 
+function ViewOfferDialog({ isOpen, close, listing, setTabIndex }) {
+  const classes = useStyles();
+  const { setSnackbar } = useStore();
+
+  const { title, offers, budget, commitment, period, location } = listing;
+
+  const accept = () => {
+    setSnackbar({
+      isOpen: true,
+      message: "Offer accepted! (Function does not actually work)",
+      status: "success",
+    });
+
+    setTabIndex(1);
+
+    close();
+  };
+
+  const reject = () => {
+    setSnackbar({
+      isOpen: true,
+      message: "Offer rejected! (Function does not actually work)",
+      status: "success",
+    });
+
+    close();
+  };
+
+  return (
+    <DialogWithCross isOpen={isOpen} close={close}>
+      <DialogTitle className={classes.center}>
+        <Typography className={classes.title} gutterBottom>
+          View Offers
+        </Typography>
+      </DialogTitle>
+      <DialogContent className={classes.dialog}>
+        <Typography className={classes.title} gutterBottom>
+          {title}
+        </Typography>
+        <Grid container direction="column" spacing={1}>
+          <Grid item>
+            <Grid container wrap="nowrap" spacing={1}>
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  IconComponent={<AttachMoneyIcon />}
+                >
+                  {`Budget: ${budget}`}
+                </IconWithText>
+              </Grid>
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  IconComponent={<QueryBuilderIcon />}
+                >
+                  {`Commitment: ${commitment}`}
+                </IconWithText>
+              </Grid>
+            </Grid>
+            <Grid container wrap="nowrap" spacing={1}>
+              <Grid item xs={6}>
+                <IconWithText variant="body2" IconComponent={<DateRangeIcon />}>
+                  {`Period: ${period}`}
+                </IconWithText>
+              </Grid>
+              <Grid item xs={6}>
+                <IconWithText
+                  variant="body2"
+                  IconComponent={<RoomOutlinedIcon />}
+                >
+                  {`Location: ${location}`}
+                </IconWithText>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            {offers.map((offer, i) => (
+              <OfferCard
+                className={classes.marginBottom}
+                key={i}
+                listing={listing}
+                index={i}
+                accept={accept}
+                reject={reject}
+              />
+            ))}
+          </Grid>
+        </Grid>
+      </DialogContent>
+    </DialogWithCross>
+  );
+}
+
+function OfferCard({ listing, index, accept, reject, ...rest }) {
+  const classes = useStyles();
+  const offer = listing.offers[index];
+
+  return (
+    <PurpleCard {...rest}>
+      <CardContent>
+        <Grid container>
+          <Grid container item xs={8} alignItems="center">
+            <Grid item xs={4}>
+              <Avatar
+                className={classes.large}
+                variant="square"
+                src={offer.image}
+              />
+            </Grid>
+            <Grid item xs={8}>
+              <Typography variant="h5">{`${offer.budget}`}</Typography>
+              <Typography variant="h6">{` for ${offer.name}`}</Typography>
+              <Typography
+                variant="caption"
+                color="textSecondary"
+              >{`“${offer.description}”`}</Typography>
+            </Grid>
+          </Grid>
+          <Grid container item xs={4}>
+            <Grid item>
+              <Typography>{`Offered: ${offer.date}`}</Typography>
+            </Grid>
+            <Grid item>
+              <GreenButton
+                onClick={accept}
+                className={classes.marginBottom}
+                fullWidth
+              >
+                Accept
+              </GreenButton>
+              <Button onClick={reject} fullWidth variant="contained">
+                Reject
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </PurpleCard>
+  );
+}
+
 function CompleteDialog({ isOpen, close, listing, index, setTabIndex }) {
   const classes = useStyles();
   const { setSnackbar } = useStore();
 
-  const {
-    title,
-    budget,
-    commitment,
-    period,
-    location,
-    completed,
-    inProgress,
-  } = listing;
+  const { title, budget, commitment, period, location, inProgress } = listing;
 
   const complete = () => {
     setSnackbar({

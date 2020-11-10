@@ -1,15 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import clsx from "clsx";
 // Material UI components
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 // Custom components
-import EditIcon from "../assets/icons/EditIcon";
+// import EditIcon from "../assets/icons/EditIcon";
 import QualificationCard from "./QualificationCard";
 import SkillCard from "./SkillCard";
 import ExperienceCard from "./ExperienceCard";
@@ -50,31 +50,31 @@ const useStyles = makeStyles((theme) => ({
 export default function Portfolio() {
   const classes = useStyles();
 
-  const renderEmptyPortfolio = () => (
-    <Grid container className={classes.container} direction="column" alignItems="center" spacing={2}>
-      <Grid item>
-        <Typography variant="h5">
-          {`Oh no you have nothing on your portfolio!`}
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Typography variant="h5">
-          {`Click "Edit Portfolio" to update your portfolio now`}
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          color="primary"
-          style={{ textTransform: "unset" }}
-          component={Link}
-          to="/edit-portfolio"
-        >
-          <EditIcon className={classes.editIcon} />Edit Portfolio
-        </Button>
-      </Grid>
-    </Grid>
-  )
+  // const renderEmptyPortfolio = () => (
+  //   <Grid container className={classes.container} direction="column" alignItems="center" spacing={2}>
+  //     <Grid item>
+  //       <Typography variant="h5">
+  //         {`Oh no you have nothing on your portfolio!`}
+  //       </Typography>
+  //     </Grid>
+  //     <Grid item>
+  //       <Typography variant="h5">
+  //         {`Click "Edit Portfolio" to update your portfolio now`}
+  //       </Typography>
+  //     </Grid>
+  //     <Grid item>
+  //       <Button
+  //         variant="contained"
+  //         color="primary"
+  //         style={{ textTransform: "unset" }}
+  //         component={Link}
+  //         to="/edit-portfolio"
+  //       >
+  //         <EditIcon className={classes.editIcon} />Edit Portfolio
+  //       </Button>
+  //     </Grid>
+  //   </Grid>
+  // )
 
   const renderPortfolio = () => (
     <Grid container className={clsx(classes.container, classes.populatedContainer)}>

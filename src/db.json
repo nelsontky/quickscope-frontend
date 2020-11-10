@@ -306,7 +306,6 @@
       "inProgress": [],
       "offers": []
     },
-
     {
       "id": "2",
       "title": "Build a React Web App",
@@ -320,13 +319,13 @@
         {
           "name": "chester",
           "date": "31/10/20",
-          "description": "I want to a React Web App to showcase my art works",
+          "description": "I want a React Web App to showcase my art works",
           "image": "https://material-ui.com/static/images/avatar/1.jpg"
         },
         {
           "name": "nelson",
           "date": "15/09/20",
-          "description": "I want to a React Web App to showcase my art works",
+          "description": "I want a React Web App to showcase my art works",
           "image": "https://material-ui.com/static/images/avatar/1.jpg"
         }
       ],
@@ -343,7 +342,7 @@
           "name": "bobby",
           "date": "3 days ago",
           "budget": "$500",
-          "description": "I want to a React Web App to showcase my art works",
+          "description": "I want a React Web App to showcase my art works",
           "image": "https://material-ui.com/static/images/avatar/1.jpg"
         },
         {
