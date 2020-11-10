@@ -49,7 +49,7 @@ function App() {
             <Route exact path="/applications">
               <Applications />
             </Route>
-            <Route exact path="/listings">
+            <Route path="/listings">
               <Listings />
             </Route>
             <Route exact path="/">
