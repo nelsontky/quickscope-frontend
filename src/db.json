@@ -250,6 +250,7 @@
       "commitment": "30 hrs / week",
       "period": "1 week",
       "location": "Singapore",
+      "views": "40",
       "completed": [
         { "name": "chester", "date": "31/10/20" },
         { "name": "nelson", "date": "15/09/20" }
