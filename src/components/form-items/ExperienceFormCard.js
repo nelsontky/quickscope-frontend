@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 // Custom components
 import FormItemInputActions from "./FormItemInputActions";
@@ -13,8 +13,8 @@ import FormCard from "./FormCard";
 import Input from "./FormInput";
 
 const useStyles = makeStyles((theme) => ({
-  titleInput: {
-    width: 220
+  workInput: {
+    width: 240
   },
   durationInput: {
     width: 80
@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
   },
   detailsText: {
     fontSize: 14
+  },
+  descriptionInput: {
+    width: 840,
+    resize: "none",
+    fontFamily: "Montserrat"
   }
 }))
 
@@ -36,36 +41,46 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
   const [startYear, setStartYear] = useState(detail?.startYear ?? "");
   const [endYear, setEndYear] = useState(detail?.endYear ?? "");
   const [description, setDescription] = useState(detail?.description ?? "");
+  const [tech, setTech] = useState(detail?.tech ?? "");
+
+  useEffect(() => {
+    if (title && organization && startYear && endYear && description && tech) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [title, organization, startYear, endYear, description, tech])
 
   const e2V = (setState) => (event) => setState(event.target.value); // event to value
 
-
-  const saveDetail = () => { // TODO:
-    // const newDetail = {
-    //   id: detail.id,
-    //   qualification,
-    //   organization,
-    //   startYear,
-    //   endYear
-    // }
-    // addNewDetail(newDetail);
-    // setIsEdit(false);
+  const saveDetail = () => {
+    const newDetail = {
+      id: detail.id,
+      title,
+      organization,
+      startYear,
+      endYear,
+      description,
+      tech
+    }
+    addNewDetail(newDetail);
+    setIsEdit(false);
   }
 
   const renderEditForm = () => (
     <>
-     <Box styles={{ display: "flex", width: "100%", 'flex-direction': 'column' }}>
-        <Box style={{ display: "flex", width: "100%" }}>
+      <Box style={{ display: "flex", width: "100%", flexDirection: "column" }}>
+        <Box style={{ display: "flex", width: "100%", justifyContent: "space-between", marginBottom: 15 }}>
           <Box style={{ marginRight: 50 }}>
             <Input
-              className={classes.qualificationInput}
+              className={classes.workInput}
               placeholder="Given title"
               value={title}
               onChange={e2V(setTitle)}
             />
             <span className={classes.text}>from</span>
             <Input
-              className={classes.qualificationInput}
+              className={classes.workInput}
               placeholder="Organization"
               value={organization}
               onChange={e2V(setOrganization)}
@@ -89,14 +104,22 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
           </Box>
         </Box>
 
-        <Box styles={{ display: "flex", width: "100%"}}>
-          <Input
-              className={classes.qualificationInput}
-              placeholder="Description"
-              value={description}
-              onChange={e2V(setDescription)}
-            />
-        </Box>
+        <TextareaAutosize
+          className={classes.descriptionInput}
+          rowsMin={3}
+          placeholder="Description of work"
+          value={description}
+          onChange={e2V(setDescription)}
+          style={{ marginBottom: 15 }}
+        />
+
+        <TextareaAutosize
+          className={classes.descriptionInput}
+          rowsMin={1}
+          placeholder="Technologies used"
+          value={tech}
+          onChange={e2V(setTech)}
+        />
       </Box>
       <FormItemInputActions
         saveDetail={saveDetail}
@@ -108,6 +131,23 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
 
   const renderDetail = () => (
     <>
+      <Box style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+        <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+          <Box style={{ display: "flex" }}>
+            <Typography className={classes.detailsText} style={{ fontWeight: "bold" }}>{title}</Typography>
+            <Typography className={classes.detailsText} style={{ margin: "0px 5px" }}>{`at`}</Typography>
+            <Typography className={classes.detailsText}>{organization}</Typography>
+          </Box>
+          <Typography className={classes.detailsText}>{`From ${startYear} to ${endYear}`}</Typography>
+        </Box>
+
+        <Box style={{ margin: "15px 0px" }}>
+          <Typography className={classes.detailsText}>{description}</Typography>
+        </Box>
+
+        <Typography className={classes.detailsText}>{`Technologies used: ${tech}`}</Typography>
+      </Box>
+      <DetailActions setIsEdit={setIsEdit} deleteDetail={deleteDetail(detail.id)} />
     </>
   )
 

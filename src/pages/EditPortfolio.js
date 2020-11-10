@@ -3,11 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 // Custom components
-import FormItem from "../components/form-items/FormItem";
 import IntroductionFormItem from "../components/form-items/IntroductionFormItem";
 import QualificationFormItem from "../components/form-items/QualificationFormItem";
 import ExperienceFormItem from "../components/form-items/ExperienceFormItem";
@@ -19,13 +18,19 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightBold,
     color: theme.palette.primary.main
   },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingBottom: 500
+  }
 }))
 
 export default function EditPortfolio() {
   const classes = useStyles();
 
   return (
-    <Box>
+    <Box className={classes.container}>
       <Box textAlign="center">
         <Typography className={classes.headerText} variant="h4">
           Portfolio Builder
@@ -34,13 +39,16 @@ export default function EditPortfolio() {
           Build your personal portfolio
         </Typography>
       </Box>
-      <Grid container>
+      <Box>
         <IntroductionFormItem />
         <QualificationFormItem />
         <ExperienceFormItem />
         <ProjectsFormItem />
         <SkillsFormItem />
-      </Grid>
+      </Box>
+      <Button variant="contained" color="primary">
+        Save
+      </Button>
     </Box>
   )
 }

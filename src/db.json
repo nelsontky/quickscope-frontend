@@ -21,6 +21,57 @@
       "React"
     ]
   },
+  "portfolio": {
+    "qualifications": [
+      {
+        "qualification": "Bachelor in Computer Science",
+        "organization": "National University of Singapore",
+        "startYear": "2018",
+        "endYear": "2022"
+      },
+      {
+        "qualification": "Diploma in Information Technology",
+        "organization": "Ngee Ann Polytechnic",
+        "startYear": "2015",
+        "endYear": "2018"
+      }
+    ],
+    "skills": [
+      {
+        "skill": "React",
+        "years": "4",
+        "proficiency": "Very Proficient"
+      },
+      {
+        "skill": "React Native",
+        "years": "3",
+        "proficiency": "Proficient"
+      },
+      {
+        "skill": "Javascript",
+        "years": "4",
+        "proficiency": "Very Proficient"
+      }
+    ],
+    "experiences": [
+      {
+        "title": "React Native Developer",
+        "organization": "Ministry of Languages",
+        "startYear": "2022",
+        "endYear": "Present",
+        "description": "Develop Mobile application for Android and iOS using React Native for children to learn languages on the go.",
+        "tech": ["React Native", "Redux", "Typescript", "Express", "MongoDB"]
+      },
+      {
+        "title": "Front-End Web Developer",
+        "organization": "Ngee Ann Polytechnic",
+        "startYear": "2016",
+        "endYear": "2018",
+        "description": "Develop a web application for the students of Faculty of Information Technology to showcase their projects and look for potential project mates using React.",
+        "tech": ["React", "Redux", "Javascript", "Express", "MongoDB"]
+      }
+    ]
+  },
   "jobs": [
     {
       "id": "1",
