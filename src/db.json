@@ -320,15 +320,24 @@
         {
           "name": "chester",
           "date": "31/10/20",
-          "description": "I want to a React Web App to showcase my art works"
+          "description": "I want to a React Web App to showcase my art works",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
         },
         {
           "name": "nelson",
           "date": "15/09/20",
-          "description": "I want to a React Web App to showcase my art works"
+          "description": "I want to a React Web App to showcase my art works",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
         }
       ],
-      "inProgress": ["zhangxian"],
+      "inProgress": [
+        {
+          "name": "zhangxian",
+          "date": "14/10/20",
+          "description": "I want a cool website!",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
+        }
+      ],
       "offers": [
         {
           "name": "bobby",

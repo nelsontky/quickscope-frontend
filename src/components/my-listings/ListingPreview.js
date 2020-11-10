@@ -22,6 +22,7 @@ import PurpleCard from "../PurpleCard";
 import DialogWithCross from "../DialogWithCross";
 import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
+import { useStore } from "../../store";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -50,7 +51,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListingPreview({ listing, tabIndex, index }) {
+export default function ListingPreview({
+  listing,
+  tabIndex,
+  index,
+  setTabIndex,
+}) {
   const classes = useStyles();
 
   const [listingFields, setListingFields] = useState({ ...listing });
@@ -140,6 +146,7 @@ export default function ListingPreview({ listing, tabIndex, index }) {
               tabIndex={tabIndex}
               setListingFields={setListingFields}
               index={index}
+              setTabIndex={setTabIndex}
             />
           </Grid>
         </Grid>
@@ -148,7 +155,13 @@ export default function ListingPreview({ listing, tabIndex, index }) {
   );
 }
 
-function ListingAction({ listing, tabIndex, setListingFields, index, setTabIndex }) {
+function ListingAction({
+  listing,
+  tabIndex,
+  setListingFields,
+  index,
+  setTabIndex,
+}) {
   const classes = useStyles();
   const [isComplete, setIsComplete] = useState(false);
 
@@ -236,19 +249,30 @@ function ListingAction({ listing, tabIndex, setListingFields, index, setTabIndex
 
 function CompleteDialog({ isOpen, close, listing, index, setTabIndex }) {
   const classes = useStyles();
+  const { setSnackbar } = useStore();
 
   const {
     title,
-    description,
     budget,
     commitment,
     period,
     location,
     completed,
     inProgress,
-    offers,
-    views,
   } = listing;
+
+  const complete = () => {
+    setSnackbar({
+      isOpen: true,
+      message:
+        "Successfully completed your project (Function does not actually work)",
+      status: "success",
+    });
+
+    setTabIndex(2);
+
+    close();
+  };
 
   return (
     <DialogWithCross isOpen={isOpen} close={close}>
@@ -264,7 +288,7 @@ function CompleteDialog({ isOpen, close, listing, index, setTabIndex }) {
         <Grid container spacing={1} direction="column">
           <Grid item>
             <Typography variant="body2" component="p" gutterBottom>
-              {`For ${completed[index].name} - ${completed[index].description}`}
+              {`For ${inProgress[index].name} - ${inProgress[index].description}`}
             </Typography>
           </Grid>
           <Grid item>
@@ -324,7 +348,9 @@ function CompleteDialog({ isOpen, close, listing, index, setTabIndex }) {
             </ul>
           </Grid>
           <Grid item>
-            <GreenButton fullWidth>Complete</GreenButton>
+            <GreenButton onClick={complete} fullWidth>
+              Complete
+            </GreenButton>
           </Grid>
         </Grid>
       </DialogContent>

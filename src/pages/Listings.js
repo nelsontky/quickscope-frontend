@@ -47,7 +47,11 @@ export default function Applications() {
         {tabIndex === 0
           ? listings.map((listing, i) => (
               <Grid item xs={12} key={tabIndex + " " + i}>
-                <ListingPreview tabIndex={tabIndex} listing={listing} />
+                <ListingPreview
+                  setTabIndex={setTabIndex}
+                  tabIndex={tabIndex}
+                  listing={listing}
+                />
               </Grid>
             ))
           : tabIndex === 1
@@ -55,6 +59,7 @@ export default function Applications() {
               listing.inProgress.map((_, j) => (
                 <Grid item xs={12} key={tabIndex + " " + i + " " + j}>
                   <ListingPreview
+                    setTabIndex={setTabIndex}
                     tabIndex={tabIndex}
                     listing={listing}
                     index={j}
@@ -66,6 +71,7 @@ export default function Applications() {
               listing.completed.map((_, j) => (
                 <Grid item xs={12} key={tabIndex + " " + i + " " + j}>
                   <ListingPreview
+                    setTabIndex={setTabIndex}
                     tabIndex={tabIndex}
                     listing={listing}
                     index={j}
