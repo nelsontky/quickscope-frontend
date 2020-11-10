@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function JobListing() {
   const classes = useStyles();
   const { id } = useParams();
 

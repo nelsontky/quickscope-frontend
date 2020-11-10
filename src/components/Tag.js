@@ -10,6 +10,7 @@ const useStyles = makeStyles({
   chip: {
     borderRadius: 3,
     height: 21,
+    cursor: "inherit",
   },
 });
 
