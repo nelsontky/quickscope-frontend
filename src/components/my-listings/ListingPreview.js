@@ -12,6 +12,7 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import TouchAppOutlinedIcon from "@material-ui/icons/TouchAppOutlined";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import PurpleCard from "../PurpleCard";
 
@@ -124,33 +125,13 @@ export default function ListingPreview({ listing, tabIndex }) {
                 </Grid>
               </Grid>
             </Grid>
-            {/* </Grid>
-          <Grid container item xs={4}>
-            <Grid xs={12} item>
-              {tabIndex !== 2 && (
-                <Typography className={classes.status} gutterBottom>
-                  {"Status: "}
-                  <span
-                    className={clsx(
-                      tabIndex === 0
-                        ? classes.yellow
-                        : tabIndex === 1
-                        ? classes.green
-                        : undefined
-                    )}
-                  >
-                    {status}
-                  </span>
-                </Typography>
-              )}
-            </Grid>
-            <Grid xs={12} item className={classes.center}>
-              <ApplicationAction
-                status={status}
-                tabIndex={tabIndex}
-                setJobFields={setJobFields}
-              />
-                    </Grid> */}
+          </Grid>
+          <Grid item xs={4}>
+            <ListingAction
+              listing={listingFields}
+              tabIndex={tabIndex}
+              setListingFields={setListingFields}
+            />
           </Grid>
         </Grid>
       </CardContent>
@@ -158,21 +139,40 @@ export default function ListingPreview({ listing, tabIndex }) {
   );
 }
 
-// function ListingAction({ status, tabIndex, setListingFields }) {
-//   const classes = useStyles();
+function ListingAction({ listing, tabIndex, setListingFields }) {
+  const classes = useStyles();
 
-//   const completeListing = () => {
-//     setListingFields((fields) => {
-//       const currFields = {...fields};
-//       del 
-//     })
-//   }
+  const { views, completed, inProgress, offers } = listing;
 
-//   if (tabIndex === 2) {
-//     return null;
-//   }
+  if (tabIndex === 0) {
+    return (
+      <Grid container direction="column">
+        <Grid item className={classes.center}>
+          <IconWithText justify="center" IconComponent={<VisibilityIcon />}>
+            {`${views} views`}
+          </IconWithText>
+        </Grid>
 
-//   if (tabIndex === 1) {
-//     return <GreenButton
-//   }
-// }
+        {completed.length > 0 && (
+          <Grid item className={classes.center}>
+            <Typography className={clsx(classes.green, classes.status)}>
+              {`${completed.length} completed`}
+            </Typography>
+          </Grid>
+        )}
+        {inProgress.length > 0 && (
+          <Grid item className={classes.center}>
+            <Typography className={clsx(classes.yellow, classes.status)}>
+              {`${inProgress.length} in progress`}
+            </Typography>
+          </Grid>
+        )}
+        {offers.length > 0 && (
+          <Grid item className={classes.center}>
+            <GreenButton>{`${offers.length} new offers`}</GreenButton>
+          </Grid>
+        )}
+      </Grid>
+    );
+  }
+}

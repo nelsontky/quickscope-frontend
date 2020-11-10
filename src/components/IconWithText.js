@@ -9,6 +9,7 @@ export default function IconWithText({
   children,
   className,
   swapOrder,
+  justify,
   ...rest
 }) {
   return (
@@ -18,6 +19,7 @@ export default function IconWithText({
       wrap="nowrap"
       alignItems="center"
       direction={swapOrder ? "row-reverse" : "row"}
+      justify={justify}
     >
       <Grid item>{React.cloneElement(IconComponent)}</Grid>
       <Grid item>
