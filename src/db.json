@@ -266,8 +266,16 @@
       "location": "Singapore",
       "views": "40",
       "completed": [
-        { "name": "chester", "date": "31/10/20" },
-        { "name": "nelson", "date": "15/09/20" }
+        {
+          "name": "chester",
+          "date": "31/10/20",
+          "description": "I want to a React Web App to showcase my art works"
+        },
+        {
+          "name": "nelson",
+          "date": "15/09/20",
+          "description": "I want to a React Web App to showcase my art works"
+        }
       ],
       "inProgress": ["zhangxian"],
       "offers": [
