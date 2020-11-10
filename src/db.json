@@ -129,7 +129,12 @@
         "location": "Singapore",
         "vacancies": "2",
         "applications": "4",
-        "status": "Pending hirer's review"
+        "status": "Pending hirer's review",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
       },
       {
         "jobId": "2",
@@ -140,7 +145,85 @@
         "period": "1 week",
         "location": "Singapore",
         "vacancies": "2",
-        "applications": "4"
+        "applications": "4",
+        "status": "Pending interview",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
+      }
+    ],
+    "offered": [
+      {
+        "jobId": "1",
+        "title": "CRA to NextJS Migrationzzzzz",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4",
+        "status": "Offered",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
+      },
+      {
+        "jobId": "2",
+        "title": "CRAzzz to NextJS Migration Long Title Testing LOL HAHAHHA",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4",
+        "status": "Accepted",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
+      }
+    ],
+    "completed": [
+      {
+        "jobId": "1",
+        "title": "CRA to NextJS Migration",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4",
+        "status": "Pending hirer's review",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
+      },
+      {
+        "jobId": "2",
+        "title": "CRA to NextJS Migration Long Title Testing LOL HAHAHHA",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4",
+        "status": "Pending interview",
+        "hirer": {
+          "name": "The Sellers Co.",
+          "image": "https://material-ui.com/static/images/avatar/3.jpg",
+          "description": "The Sellers Co. is an cosmetic company based in Singapore."
+        }
       }
     ]
   }

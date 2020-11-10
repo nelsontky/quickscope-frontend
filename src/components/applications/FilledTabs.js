@@ -1,8 +1,8 @@
 import React from "react";
+import clsx from "clsx";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 const StyledTabs = withStyles((theme) => ({
@@ -48,11 +48,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilledTabs({ index, setIndex }) {
+export default function FilledTabs({ index, setIndex, className }) {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="sm" className={classes.root}>
+    <Container maxWidth="sm" className={clsx(classes.root, className)}>
       <StyledTabs
         value={index}
         onChange={(e, value) => {
