@@ -40,9 +40,10 @@ const useStyles = makeStyles((theme) => ({
   green: {
     color: theme.palette.success.main,
   },
+  completeContainer: { height: "100%" },
 }));
 
-export default function ListingPreview({ listing, tabIndex }) {
+export default function ListingPreview({ listing, tabIndex, index }) {
   const classes = useStyles();
 
   const [listingFields, setListingFields] = useState({ ...listing });
@@ -131,6 +132,7 @@ export default function ListingPreview({ listing, tabIndex }) {
               listing={listingFields}
               tabIndex={tabIndex}
               setListingFields={setListingFields}
+              index={index}
             />
           </Grid>
         </Grid>
@@ -139,7 +141,7 @@ export default function ListingPreview({ listing, tabIndex }) {
   );
 }
 
-function ListingAction({ listing, tabIndex, setListingFields }) {
+function ListingAction({ listing, tabIndex, setListingFields, index }) {
   const classes = useStyles();
 
   const { views, completed, inProgress, offers } = listing;
@@ -175,4 +177,37 @@ function ListingAction({ listing, tabIndex, setListingFields }) {
       </Grid>
     );
   }
+
+  if (tabIndex === 1) {
+    return (
+      <Grid
+        className={classes.completeContainer}
+        container
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item xs={6}>
+          <GreenButton fullWidth>Complete</GreenButton>
+        </Grid>
+      </Grid>
+    );
+  }
+
+  if (tabIndex === 2) {
+    return (
+      <Grid
+        className={classes.completeContainer}
+        container
+        alignItems="center"
+      >
+        <Grid item xs={12} className={classes.center}>
+          <Typography className={classes.status}>
+            {`Completed on ${completed[index].date}`}
+          </Typography>
+        </Grid>
+      </Grid>
+    );
+  }
+
+  return null;
 }
