@@ -15,7 +15,8 @@ import Applications from "./pages/Applications";
 import Home from "./pages/Home";
 import JobListing from "./pages/JobListing";
 import NotFound from "./pages/404";
-import Portfolio from "./pages/MyPortfolio";
+import Portfolio from "./pages/Portfolio";
+import Listings from "./pages/Listings";
 import EditPortfolio from "./pages/EditPortfolio";
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +46,9 @@ function App() {
             </Route>
             <Route exact path="/applications">
               <Applications />
+            </Route>
+            <Route exact path="/listings">
+              <Listings />
             </Route>
             <Route exact path="/">
               <Home />

@@ -18,6 +18,8 @@ import PurpleCard from "../PurpleCard";
 import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
 
+import { useStore } from "../../store";
+
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 18,
@@ -41,23 +43,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function JobPreview({ job, tabIndex }) {
+export default function ListingPreview({ listing, tabIndex }) {
   const classes = useStyles();
 
-  const [jobFields, setJobFields] = useState({ ...job });
+  const [listingFields, setListingFields] = useState({ ...listing });
 
   const {
     title,
     description,
-    salary,
+    budget,
     commitment,
     period,
     location,
-    vacancies,
-    applications,
-    hirer,
-    status,
-  } = jobFields;
+    completed,
+    inProgress,
+    offers,
+    views,
+  } = listingFields;
+
+  const context = useStore();
+  console.log(context);
 
   return (
     <PurpleCard className={classes.root}>
@@ -74,8 +79,7 @@ export default function JobPreview({ job, tabIndex }) {
             >
               <Grid item>
                 <Typography className={classes.title} gutterBottom>
-                  {title}{" "}
-                  <Typography component="span"> for {hirer.name}</Typography>
+                  {title}
                 </Typography>
               </Grid>
             </Grid>
@@ -93,7 +97,7 @@ export default function JobPreview({ job, tabIndex }) {
                       variant="body2"
                       IconComponent={<AttachMoneyIcon />}
                     >
-                      {`Salary: ${salary}`}
+                      {`Budget: ${budget}`}
                     </IconWithText>
                   </Grid>
                   <Grid item xs={4}>
@@ -102,14 +106,6 @@ export default function JobPreview({ job, tabIndex }) {
                       IconComponent={<QueryBuilderIcon />}
                     >
                       {`Commitment: ${commitment}`}
-                    </IconWithText>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <IconWithText
-                      variant="body2"
-                      IconComponent={<SearchIcon />}
-                    >
-                      {`Vacancies: ${vacancies}`}
                     </IconWithText>
                   </Grid>
                 </Grid>
@@ -130,18 +126,10 @@ export default function JobPreview({ job, tabIndex }) {
                       {`Location: ${location}`}
                     </IconWithText>
                   </Grid>
-                  <Grid item xs={4}>
-                    <IconWithText
-                      variant="body2"
-                      IconComponent={<TouchAppOutlinedIcon />}
-                    >
-                      {`Applications: ${applications}`}
-                    </IconWithText>
-                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
+            {/* </Grid>
           <Grid container item xs={4}>
             <Grid xs={12} item>
               {tabIndex !== 2 && (
@@ -167,7 +155,7 @@ export default function JobPreview({ job, tabIndex }) {
                 tabIndex={tabIndex}
                 setJobFields={setJobFields}
               />
-            </Grid>
+                    </Grid> */}
           </Grid>
         </Grid>
       </CardContent>

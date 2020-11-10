@@ -8,12 +8,12 @@ import Typography from "@material-ui/core/Typography";
 
 // Custom components
 import StyledTabs from "../components/StyledTabs";
-import JobPreview from "../components/applications/JobPreview";
+import ListingPreview from "../components/my-listings/ListingPreview";
 
 // Utils
 import db from "../db.json";
 
-const allApplications = db.applications;
+const listings = db.listings;
 
 const useStyles = makeStyles((theme) => ({
   headerText: {
@@ -30,36 +30,23 @@ export default function Applications() {
 
   const [tabIndex, setTabIndex] = useState(0);
 
-  const applications =
-    tabIndex === 0
-      ? allApplications.inProgress
-      : tabIndex === 1
-      ? allApplications.offered
-      : tabIndex === 2
-      ? allApplications.completed
-      : undefined;
-
-  if (!applications) {
-    throw new Error("Application status is invalid");
-  }
-
   return (
     <Box>
       <Box textAlign="center">
         <Typography className={classes.headerText} variant="h4">
-          My Applications
+          My Listings
         </Typography>
       </Box>
       <StyledTabs
         index={tabIndex}
         setIndex={setTabIndex}
         className={classes.tabs}
-        headers={["In Progress", "Offered", "Completed"]}
+        headers={["All Listings", "In Progress", "Completed"]}
       />
       <Grid container spacing={4}>
-        {applications.map((job, i) => (
+        {listings.map((listing, i) => (
           <Grid item xs={12} key={tabIndex + " " + i}>
-            <JobPreview tabIndex={tabIndex} job={job} />
+            <ListingPreview tabIndex={tabIndex} listing={listing} />
           </Grid>
         ))}
       </Grid>
