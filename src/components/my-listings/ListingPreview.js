@@ -18,8 +18,6 @@ import PurpleCard from "../PurpleCard";
 import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
 
-import { useStore } from "../../store";
-
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 18,
@@ -60,9 +58,6 @@ export default function ListingPreview({ listing, tabIndex }) {
     offers,
     views,
   } = listingFields;
-
-  const context = useStore();
-  console.log(context);
 
   return (
     <PurpleCard className={classes.root}>
@@ -163,44 +158,21 @@ export default function ListingPreview({ listing, tabIndex }) {
   );
 }
 
-function ApplicationAction({ status, tabIndex, setJobFields }) {
-  const classes = useStyles();
+// function ListingAction({ status, tabIndex, setListingFields }) {
+//   const classes = useStyles();
 
-  if (tabIndex === 2) {
-    return <Typography className={classes.title}>{status}</Typography>;
-  }
+//   const completeListing = () => {
+//     setListingFields((fields) => {
+//       const currFields = {...fields};
+//       del 
+//     })
+//   }
 
-  switch (status) {
-    case "Pending interview":
-      return (
-        <GreenButton
-          onClick={() => {
-            setJobFields((jobFields) => ({
-              ...jobFields,
-              status: "Interview Scheduled",
-            }));
-          }}
-        >
-          Schedule Interview
-        </GreenButton>
-      );
-    case "Offered":
-      return (
-        <GreenButton
-          onClick={() => {
-            setJobFields((jobFields) => ({ ...jobFields, status: "Accepted" }));
-          }}
-        >
-          Accept Offer
-        </GreenButton>
-      );
-    case "Accepted":
-      return (
-        <Typography className={clsx(classes.title, classes.green)}>
-          Accepted
-        </Typography>
-      );
-    default:
-      return null;
-  }
-}
+//   if (tabIndex === 2) {
+//     return null;
+//   }
+
+//   if (tabIndex === 1) {
+//     return <GreenButton
+//   }
+// }

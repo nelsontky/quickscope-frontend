@@ -44,11 +44,35 @@ export default function Applications() {
         headers={["All Listings", "In Progress", "Completed"]}
       />
       <Grid container spacing={4}>
-        {listings.map((listing, i) => (
-          <Grid item xs={12} key={tabIndex + " " + i}>
-            <ListingPreview tabIndex={tabIndex} listing={listing} />
-          </Grid>
-        ))}
+        {tabIndex === 0
+          ? listings.map((listing, i) => (
+              <Grid item xs={12} key={tabIndex + " " + i}>
+                <ListingPreview tabIndex={tabIndex} listing={listing} />
+              </Grid>
+            ))
+          : tabIndex === 1
+          ? listings.map((listing, i) =>
+              listing.inProgress.map((_, j) => (
+                <Grid item xs={12} key={tabIndex + " " + i + " " + j}>
+                  <ListingPreview
+                    tabIndex={tabIndex}
+                    listing={listing}
+                    index={j}
+                  />
+                </Grid>
+              ))
+            )
+          : listings.map((listing, i) =>
+              listing.completed.map((_, j) => (
+                <Grid item xs={12} key={tabIndex + " " + i + " " + j}>
+                  <ListingPreview
+                    tabIndex={tabIndex}
+                    listing={listing}
+                    index={j}
+                  />
+                </Grid>
+              ))
+            )}
       </Grid>
     </Box>
   );

@@ -244,6 +244,20 @@
   "listings": [
     {
       "id": "1",
+      "title": "Build a Telegram Bot",
+      "description": "I’m interested to build a Telegram bot,  especially a cool one! Feel free to drop me a message to discuss about your idea!",
+      "budget": "20 / hour",
+      "commitment": "20 hrs / week",
+      "period": "1 week",
+      "location": "Singapore",
+      "views": "0",
+      "completed": [],
+      "inProgress": [],
+      "offers": []
+    },
+
+    {
+      "id": "2",
       "title": "Build a React Web App",
       "description": "I’m interested to build a responsive React Web App. I don’t mind a good challenge!",
       "budget": "35 / hour",

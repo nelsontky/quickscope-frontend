@@ -7,6 +7,7 @@ export default function StateProvider({ children }) {
     isOpen: false,
     message: "",
     status: "success",
+    anchorOrigin: undefined,
   });
 
   const store = { snackbar, setSnackbar };
