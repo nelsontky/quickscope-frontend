@@ -19,9 +19,6 @@ import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
 
 const useStyles = makeStyles((theme) => ({
-  favorite: {
-    color: theme.palette.primary.main,
-  },
   title: {
     fontSize: 18,
     fontWeight: theme.typography.fontWeightBold,
@@ -32,26 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
   titleContainer: {
     marginBottom: theme.spacing(2),
-  },
-  avatar: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
-  },
-  bold: {
-    fontWeight: theme.typography.fontWeightBold,
-  },
-  hirerTitle: {
-    display: "-webkit-box",
-    "-webkit-line-clamp": 1,
-    "-webkit-box-orient": "vertical",
-    overflow: "hidden",
-  },
-  hirerDescription: {
-    display: "-webkit-box",
-    "-webkit-line-clamp": 4,
-    "-webkit-box-orient": "vertical",
-    overflow: "hidden",
-    marginBottom: theme.spacing(1),
   },
   yellow: {
     color: "#D7A200",
