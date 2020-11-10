@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   headerText: {
     fontWeight: theme.typography.fontWeightBold,
     marginBottom: theme.spacing(3),
+    color: theme.palette.primary.main
   },
   chipsContainer: {
     marginTop: theme.spacing(2),

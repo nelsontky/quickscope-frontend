@@ -17,6 +17,7 @@ import JobListing from "./pages/JobListing";
 import NotFound from "./pages/404";
 import Portfolio from "./pages/Portfolio";
 import Listings from "./pages/Listings";
+import EditPortfolio from "./pages/EditPortfolio";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,9 @@ function App() {
       <Container className={classes.root} fixed>
         <ErrorBoundary>
           <Switch>
+            <Route exact path="/edit-portfolio">
+              <EditPortfolio />
+            </Route>
             <Route exact path="/jobs/:id">
               <JobListing />
             </Route>
