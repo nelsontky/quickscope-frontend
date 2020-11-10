@@ -47,14 +47,14 @@ export default function Applications() {
     <Box>
       <Box textAlign="center">
         <Typography className={classes.headerText} variant="h4">
-          My Applications
+          My Listings
         </Typography>
       </Box>
       <StyledTabs
         index={tabIndex}
         setIndex={setTabIndex}
         className={classes.tabs}
-        headers={["In Progress", "Offered", "Completed"]}
+        headers={["All Listings", "In Progress", "Completed"]}
       />
       <Grid container spacing={4}>
         {applications.map((job, i) => (

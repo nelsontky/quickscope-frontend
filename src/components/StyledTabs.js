@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FilledTabs({ index, setIndex, className }) {
+export default function FilledTabs({ index, setIndex, className, headers }) {
   const classes = useStyles();
 
   return (
@@ -59,9 +59,9 @@ export default function FilledTabs({ index, setIndex, className }) {
           setIndex(value);
         }}
       >
-        <StyledTab label="In Progress" />
-        <StyledTab className={classes.borderLeftRight} label="Offered" />
-        <StyledTab label="Completed" />
+        <StyledTab label={headers[0]} />
+        <StyledTab className={classes.borderLeftRight} label={headers[1]} />
+        <StyledTab label={headers[2]} />
       </StyledTabs>
     </Container>
   );
