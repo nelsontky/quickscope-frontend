@@ -18,6 +18,8 @@ import PurpleCard from "../PurpleCard";
 import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
 
+import { useStore } from "../../store";
+
 const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 18,
@@ -58,6 +60,9 @@ export default function ListingPreview({ listing, tabIndex }) {
     offers,
     views,
   } = listingFields;
+
+  const context = useStore();
+  console.log(context);
 
   return (
     <PurpleCard className={classes.root}>

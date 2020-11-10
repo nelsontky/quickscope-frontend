@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import StateProvider from "./store";
+
 import {
   createMuiTheme,
   responsiveFontSizes,
@@ -26,7 +28,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Router basename={process.env.PUBLIC_URL}>
-        <App />
+        <StateProvider>
+          <App />
+        </StateProvider>
       </Router>
     </ThemeProvider>
   </React.StrictMode>,
