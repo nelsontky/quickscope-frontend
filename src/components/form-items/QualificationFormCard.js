@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 // Custom components
@@ -13,8 +12,8 @@ import Input from "./FormInput";
 import FormCard from "./FormCard";
 
 const useStyles = makeStyles((theme) => ({
-  titleInput: {
-    width: 220
+  qualificationInput: {
+    width: 240
   },
   durationInput: {
     width: 80
@@ -60,8 +59,8 @@ export default function QualificationFormCard({ detail, addNewDetail, deleteDeta
 
   const renderEditForm = () => (
     <>
-      <Box style={{ display: "flex", width: "100%" }}>
-        <Box style={{ marginRight: 50 }}>
+      <Box style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+        <Box style={{}}>
           <Input
             className={classes.qualificationInput}
             placeholder="Name of Qualification"
@@ -106,7 +105,7 @@ export default function QualificationFormCard({ detail, addNewDetail, deleteDeta
       <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
         <Box style={{ display: "flex" }}>
           <Typography className={classes.detailsText} style={{ fontWeight: "bold" }}>{qualification}</Typography>
-          <Typography className={classes.detailsText} style={{ margin: "0px 5px" }}>{` from `}</Typography>
+          <Typography className={classes.detailsText} style={{ margin: "0px 5px" }}>{`from`}</Typography>
           <Typography className={classes.detailsText}>{organization}</Typography>
         </Box>
         <Typography className={classes.detailsText}>{`From ${startYear} to ${endYear}`}</Typography>

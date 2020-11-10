@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // Material UI components
+import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 
 // Custom components
@@ -11,8 +12,13 @@ import Button from "../DivButton";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+  },
+  actionsContainer: {
     width: 50,
-    marginLeft: 20
+    marginLeft: 40
   }
 }))
 
@@ -26,13 +32,16 @@ export default function DetailActions({ setIsEdit, deleteDetail }) {
   const classes = useStyles();
 
   return (
-    <Grid container justify="space-between" className={classes.container}>
-      <Button onClick={() => setIsEdit(true)}>
-        <EditIcon style={buttonStyle} />
-      </Button>
-      <Button style={{ position: "relative", top: 2 }} onClick={deleteDetail}>
-        <RemoveIcon style={{ ...buttonStyle, width: 13 }} />
-      </Button>
-    </Grid>
+    <Box className={classes.container}>
+      <Grid container justify="space-between" className={classes.actionsContainer}>
+        <Button onClick={() => setIsEdit(true)}>
+          <EditIcon style={buttonStyle} />
+        </Button>
+        <Button style={{ position: "relative", top: 2 }} onClick={deleteDetail}>
+          <RemoveIcon style={{ ...buttonStyle, width: 13 }} />
+        </Button>
+      </Grid>
+    </Box>
+
   )
 }

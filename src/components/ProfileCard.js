@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     position: "relative",
     left: -4
+  },
+  tagsContainer: {
+    marginLeft: 1,
+    marginTop: 3
   }
 }))
 
@@ -74,12 +78,13 @@ export default function ProfileCard() {
           <LocationOnIcon />
           {`${location} (Local time: ${currentDateHour}:${currentDateMinutes} GMT +8)`}
         </Grid>
-        <Grid container spacing={1}>
+        <Grid container className={classes.tagsContainer} spacing={1}>
           {techStack.map(tech => (
             <Grid item>
               <Tag
+                variant="outlined"
                 label={tech}
-                color="primart"
+                color="primary"
               />
             </Grid>
           ))

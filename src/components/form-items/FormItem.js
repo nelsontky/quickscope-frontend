@@ -39,6 +39,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "inset 0px 2px 4px rgba(0, 0, 0, 0.25)",
     padding: 20
   },
+  emptyContainer: {
+    height: "100%",
+    color: "#B0B0B0",
+    fontWeight: "bold"
+  }
 }))
 
 export default function FormItem({ label, description, textarea, FormCard }) {
@@ -71,6 +76,25 @@ export default function FormItem({ label, description, textarea, FormCard }) {
     }
   }
 
+  const renderDetails = () => details.map(detail => (
+    <FormCard
+      detail={detail}
+      addNewDetail={addNewDetail}
+      deleteDetail={deleteDetail}
+      key={detail.id}
+    />));
+
+  const renderEmptyState = () => (
+    <Grid
+      container
+      className={classes.emptyContainer}
+      justify="center"
+      alignItems="center"
+    >
+      Click + to add an item
+    </Grid>
+  )
+
   return (
     <Box className={classes.container}>
       <Typography className={classes.formLabel} variant="h6">{label}</Typography>
@@ -88,14 +112,7 @@ export default function FormItem({ label, description, textarea, FormCard }) {
       {textarea
         ? <TextareaAutosize className={classes.textArea} rowsMin={6} rowsMax={6} />
         : <Grid container className={classes.inputsContainer} direction="column">
-          {details.map(detail => (
-            <FormCard
-              detail={detail}
-              addNewDetail={addNewDetail}
-              deleteDetail={deleteDetail}
-              key={detail.id}
-            />))
-          }
+          {details.length === 0 ? renderEmptyState() : renderDetails()}
         </Grid>
       }
     </Box >
