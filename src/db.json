@@ -201,7 +201,7 @@
         "location": "Singapore",
         "vacancies": "2",
         "applications": "4",
-        "status": "Pending hirer's review",
+        "status": "Completed on 15/09/20",
         "hirer": {
           "name": "The Sellers Co.",
           "image": "https://material-ui.com/static/images/avatar/3.jpg",
@@ -218,7 +218,7 @@
         "location": "Singapore",
         "vacancies": "2",
         "applications": "4",
-        "status": "Pending interview",
+        "status": "Completed on 31/10/20",
         "hirer": {
           "name": "The Sellers Co.",
           "image": "https://material-ui.com/static/images/avatar/3.jpg",

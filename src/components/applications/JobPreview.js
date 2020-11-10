@@ -5,24 +5,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Card from "@material-ui/core/Card";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
 
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import SearchIcon from "@material-ui/icons/Search";
 import TouchAppOutlinedIcon from "@material-ui/icons/TouchAppOutlined";
 
 import PurpleCard from "../PurpleCard";
-import JobPreview from "../GreenButton";
 
-import Tag from "../Tag";
 import IconWithText from "../IconWithText";
 import GreenButton from "../GreenButton";
 
@@ -175,9 +167,9 @@ export default function JobPreviewCard({ job, tabIndex }) {
           </Grid>
           <Grid container item xs={4}>
             <Grid xs={12} item>
-              <Typography className={classes.status} gutterBottom>
-                Status:{" "}
-                {
+              {tabIndex !== 2 && (
+                <Typography className={classes.status} gutterBottom>
+                  {"Status: "}
                   <span
                     className={clsx(
                       tabIndex === 0
@@ -189,11 +181,15 @@ export default function JobPreviewCard({ job, tabIndex }) {
                   >
                     {status}
                   </span>
-                }
-              </Typography>
+                </Typography>
+              )}
             </Grid>
             <Grid xs={12} item className={classes.center}>
-              <ApplicationAction status={status} />
+              <ApplicationAction
+                status={status}
+                tabIndex={tabIndex}
+                setJobFields={setJobFields}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -202,14 +198,37 @@ export default function JobPreviewCard({ job, tabIndex }) {
   );
 }
 
-function ApplicationAction({ status }) {
+function ApplicationAction({ status, tabIndex, setJobFields }) {
   const classes = useStyles();
+
+  if (tabIndex === 2) {
+    return <Typography className={classes.title}>{status}</Typography>;
+  }
 
   switch (status) {
     case "Pending interview":
-      return <GreenButton>Schedule Interview</GreenButton>;
+      return (
+        <GreenButton
+          onClick={() => {
+            setJobFields((jobFields) => ({
+              ...jobFields,
+              status: "Interview Scheduled",
+            }));
+          }}
+        >
+          Schedule Interview
+        </GreenButton>
+      );
     case "Offered":
-      return <GreenButton>Accept Offer</GreenButton>;
+      return (
+        <GreenButton
+          onClick={() => {
+            setJobFields((jobFields) => ({ ...jobFields, status: "Accepted" }));
+          }}
+        >
+          Accept Offer
+        </GreenButton>
+      );
     case "Accepted":
       return (
         <Typography className={clsx(classes.title, classes.green)}>
