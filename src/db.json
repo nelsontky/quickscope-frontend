@@ -11,7 +11,15 @@
     "name": "Nelson Tan",
     "description": "I am an NUS student studying CS with 2 years of experience coding!",
     "location": "Singapore",
-    "techStack": ["Bootstrap", "NodeJS", "Express", "CSS", "HTML5", "NextJS", "React"]
+    "techStack": [
+      "Bootstrap",
+      "NodeJS",
+      "Express",
+      "CSS",
+      "HTML5",
+      "NextJS",
+      "React"
+    ]
   },
   "jobs": [
     {
@@ -232,5 +240,37 @@
         }
       }
     ]
-  }
+  },
+  "listings": [
+    {
+      "id": "1",
+      "title": "Build a React Web App",
+      "description": "I’m interested to build a responsive React Web App. I don’t mind a good challenge!",
+      "budget": "35 / hour",
+      "commitment": "30 hrs / week",
+      "period": "1 week",
+      "location": "Singapore",
+      "completed": [
+        { "name": "chester", "date": "31/10/20" },
+        { "name": "nelson", "date": "15/09/20" }
+      ],
+      "inProgress": ["zhangxian"],
+      "offers": [
+        {
+          "name": "bobby",
+          "date": "3 days ago",
+          "budget": "$500",
+          "description": "I want to a React Web App to showcase my art works",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
+        },
+        {
+          "name": "zen",
+          "date": "8 days ago",
+          "budget": "$600",
+          "description": "I’m looking at an interactive React Web App to educate children",
+          "image": "https://material-ui.com/static/images/avatar/2.jpg"
+        }
+      ]
+    }
+  ]
 }
