@@ -16,7 +16,7 @@ import Applications from "./pages/Applications";
 import Home from "./pages/Home";
 import JobListing from "./pages/JobListing";
 import NotFound from "./pages/404";
-import Portfolio from "./pages/Portfolio";
+import MyPortfolio from "./pages/MyPortfolio";
 import Listings from "./pages/Listings";
 import EditPortfolio from "./pages/EditPortfolio";
 
@@ -44,7 +44,7 @@ function App() {
               <JobListing />
             </Route>
             <Route exact path="/portfolio">
-              <Portfolio />
+              <MyPortfolio />
             </Route>
             <Route exact path="/applications">
               <Applications />
