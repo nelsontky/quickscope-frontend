@@ -7,15 +7,17 @@ import Typography from "@material-ui/core/Typography";
 
 // Custom components
 import ProfileCard from "../components/ProfileCard";
+import Portfolio from "../components/Portfolio";
 
 const useStyles = makeStyles((theme) => ({
   headerText: {
     fontWeight: theme.typography.fontWeightBold,
     marginBottom: theme.spacing(3),
+    color: theme.palette.primary.main
   },
 }))
 
-export default function Home() {
+export default function MyPortfolio() {
   const classes = useStyles();
 
   return (
@@ -26,6 +28,7 @@ export default function Home() {
         </Typography>
       </Box>
       <ProfileCard />
+      <Portfolio />
     </Box>
   )
 }

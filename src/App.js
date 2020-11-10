@@ -14,7 +14,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Home from "./pages/Home";
 import JobListing from "./pages/JobListing";
 import NotFound from "./pages/404";
-import Portfolio from "./pages/Portfolio";
+import Portfolio from "./pages/MyPortfolio";
+import EditPortfolio from "./pages/EditPortfolio";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,9 @@ function App() {
       <Container className={classes.root} fixed>
         <ErrorBoundary>
           <Switch>
+            <Route exact path="/edit-portfolio">
+              <EditPortfolio />
+            </Route>
             <Route exact path="/portfolio">
               <Portfolio />
             </Route>
