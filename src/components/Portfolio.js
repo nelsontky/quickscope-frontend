@@ -13,12 +13,14 @@ import EditIcon from "../assets/icons/EditIcon";
 import QualificationCard from "./QualificationCard";
 import SkillCard from "./SkillCard";
 import ExperienceCard from "./ExperienceCard";
+import ProjectCard from "./ProjectCard";
 
 import db from "../db.json";
 
 const qualifications = db.portfolio.qualifications;
 const skills = db.portfolio.skills;
 const experiences = db.portfolio.experiences;
+const projects = db.portfolio.projects;
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -40,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionHeader: {
     fontWeight: "bold",
+    fontSize: 20,
     marginBottom: 15
   },
   cards: {
@@ -92,14 +95,14 @@ export default function Portfolio() {
           {qualifications.map(qualification => <QualificationCard {...qualification} />)}
         </Grid>
       </Grid>
-      <Grid container style={{ flex: 5 }} direction="column" spacing={5}>
+      <Grid container style={{ flex: 5 }} direction="column" spacing={3}>
         <Grid item>
           <Typography className={classes.sectionHeader}>My Employment</Typography>
           {experiences.map(experience => <ExperienceCard {...experience} />)}
         </Grid>
         <Grid item>
-          <Typography className={classes.sectionHeader}>I Completed...</Typography>
-
+          <Typography className={classes.sectionHeader}>My Side Projects</Typography>
+          {projects.map(project => <ProjectCard {...project} />)}
         </Grid>
       </Grid>
     </Grid>

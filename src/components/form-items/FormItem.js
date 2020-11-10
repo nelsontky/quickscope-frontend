@@ -42,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
   emptyContainer: {
     height: "100%",
     color: "#B0B0B0",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginTop: 20
   }
 }))
 

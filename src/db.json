@@ -70,6 +70,15 @@
         "description": "Develop a web application for the students of Faculty of Information Technology to showcase their projects and look for potential project mates using React.",
         "tech": ["React", "Redux", "Javascript", "Express", "MongoDB"]
       }
+    ],
+    "projects": [
+      {
+        "name": "Telegram Bot to fetch Real-time Bus Timing",
+        "description": "Telegram bot fetches real time data of bus timings using SMRT and SBS’s API.",
+        "year": "2018",
+        "tech": ["Python"],
+        "link": "www.github.com/telegram-bot-sg-bus-timing"
+      }
     ]
   },
   "jobs": [

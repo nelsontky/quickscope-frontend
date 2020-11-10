@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    paddingBottom: 500
+    alignItems: "center",
+    paddingBottom: 50
   }
 }))
 
@@ -39,15 +41,21 @@ export default function EditPortfolio() {
           Build your personal portfolio
         </Typography>
       </Box>
-      <Box>
+      <Box style={{ width: "100%" }}>
         <IntroductionFormItem />
         <QualificationFormItem />
         <ExperienceFormItem />
         <ProjectsFormItem />
         <SkillsFormItem />
       </Box>
-      <Button variant="contained" color="primary">
-        Save
+      <Button
+        variant="contained"
+        color="primary"
+        style={{ width: 300 }}
+        component={Link}
+        to="/portfolio"
+      >
+        Back to My Portfolio
       </Button>
     </Box>
   )
