@@ -116,5 +116,32 @@
       },
       "otherInformation": "<div> <strong> Job Description </strong> <p> We aim to build a platform to bring efficient UI of all functionalities to various users like our sellers, operators, and our own developers. We value the people around us and prioritize efficiency and simplicity. We believe that there is a huge potential of web to explore and we have a wide range of the latest web platform technology to use without having to worry about compatibility and legacy issues. </p> <strong>Your role</strong> <ul> <li> Design and implement products and platforms to provide highly efficient user experiences for all functionalities </li> <li> Maintain and improve our high-quality in-house JavaScript libraries and toolsets </li> <li>Participate in fierce and candid code review with peers</li> <li> Participate in regular internal technology sharings and other regional tech event </li> </ul> <strong>Other Requirements</strong> <ul> <li>Love technologies</li> <li>Enjoy teamwork</li> <li>Hands-on experience and knowledge about React JS (preferred)</li> <li> Experience in writing type-safe code with Flow or TypeScript (preferred) </li> </ul> </div> "
     }
-  ]
+  ],
+  "applications": {
+    "inProgress": [
+      {
+        "jobId": "1",
+        "title": "CRA to NextJS Migration",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4",
+        "status": "Pending hirer's review"
+      },
+      {
+        "jobId": "2",
+        "title": "CRA to NextJS Migration Long Title Testing LOL HAHAHHA",
+        "description": "Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS. Port a CRA project with react-snap and custom packages to NextJS.",
+        "salary": "35 / hour",
+        "commitment": "30 hrs / week",
+        "period": "1 week",
+        "location": "Singapore",
+        "vacancies": "2",
+        "applications": "4"
+      }
+    ]
+  }
 }
