@@ -7,8 +7,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 // Custom components
-import TopBar from "./components/TopBar";
 import ErrorBoundary from "./components/ErrorBoundary";
+import RootSnackbar from "./components/RootSnackbar";
+import TopBar from "./components/TopBar";
 
 // Pages
 import Applications from "./pages/Applications";
@@ -32,6 +33,7 @@ function App() {
     <>
       <CssBaseline />
       <TopBar />
+      <RootSnackbar />
       <Container className={classes.root} fixed>
         <ErrorBoundary>
           <Switch>
@@ -47,7 +49,7 @@ function App() {
             <Route exact path="/applications">
               <Applications />
             </Route>
-            <Route exact path="/listings">
+            <Route path="/listings">
               <Listings />
             </Route>
             <Route exact path="/">

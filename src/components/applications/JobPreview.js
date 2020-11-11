@@ -113,7 +113,7 @@ export default function JobPreview({ job, tabIndex }) {
                     </IconWithText>
                   </Grid>
                 </Grid>
-                <Grid container wrap="nowrap">
+                <Grid container wrap="nowrap" spacing={1}>
                   <Grid item xs={4}>
                     <IconWithText
                       variant="body2"

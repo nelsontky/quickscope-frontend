@@ -304,6 +304,19 @@
   "listings": [
     {
       "id": "1",
+      "title": "Build a Telegram Bot",
+      "description": "I’m interested to build a Telegram bot,  especially a cool one! Feel free to drop me a message to discuss about your idea!",
+      "budget": "20 / hour",
+      "commitment": "20 hrs / week",
+      "period": "1 week",
+      "location": "Singapore",
+      "views": "0",
+      "completed": [],
+      "inProgress": [],
+      "offers": []
+    },
+    {
+      "id": "2",
       "title": "Build a React Web App",
       "description": "I’m interested to build a responsive React Web App. I don’t mind a good challenge!",
       "budget": "35 / hour",
@@ -312,16 +325,33 @@
       "location": "Singapore",
       "views": "40",
       "completed": [
-        { "name": "chester", "date": "31/10/20" },
-        { "name": "nelson", "date": "15/09/20" }
+        {
+          "name": "chester",
+          "date": "31/10/20",
+          "description": "I want a React Web App to showcase my art works",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
+        },
+        {
+          "name": "nelson",
+          "date": "15/09/20",
+          "description": "I want a React Web App to showcase my art works",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
+        }
       ],
-      "inProgress": ["zhangxian"],
+      "inProgress": [
+        {
+          "name": "zhangxian",
+          "date": "14/10/20",
+          "description": "I want a cool website!",
+          "image": "https://material-ui.com/static/images/avatar/1.jpg"
+        }
+      ],
       "offers": [
         {
           "name": "bobby",
           "date": "3 days ago",
           "budget": "$500",
-          "description": "I want to a React Web App to showcase my art works",
+          "description": "I want a React Web App to showcase my art works",
           "image": "https://material-ui.com/static/images/avatar/1.jpg"
         },
         {
