@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const MinimalSelect = ({ options, value, onChange, ...rest }) => {
   const classes = useStyles();
   return (
-    <FormControl className={classes.root}>
+    <FormControl name={rest.name} className={classes.root}>
       <Select
         {...rest}
         disableUnderline

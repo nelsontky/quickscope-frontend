@@ -19,8 +19,9 @@ import NewListing from "./my-listings/NewListing";
 
 // Utils
 import db from "../db.json";
+import { useStore } from "../store";
 
-const listings = db.listings;
+const listingsDb = db.listings;
 
 const useStyles = makeStyles((theme) => ({
   headerText: {
@@ -43,6 +44,9 @@ export default function Listings() {
   const history = useHistory();
   let { path, url } = useRouteMatch();
   const [tabIndex, setTabIndex] = useState(0);
+  const { addedListings } = useStore();
+
+  const listings = [...addedListings, ...listingsDb];
 
   return (
     <Switch>

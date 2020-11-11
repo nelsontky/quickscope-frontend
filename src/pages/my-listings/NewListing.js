@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
@@ -12,6 +13,8 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 // Custom components
 import FormField from "../../components/FormField";
 import MinimalSelect from "../../components/MinimaSelect";
+
+import { useStore } from "../../store";
 
 const useStyles = makeStyles((theme) => ({
   headerText: {
@@ -41,6 +44,101 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewListing() {
   const classes = useStyles();
+  const {
+    newListing,
+    setNewListing,
+    setSnackbar,
+    setAddedListings,
+  } = useStore();
+
+  const history = useHistory();
+
+  useEffect(() => {
+    // Reset fields on mount
+    setNewListing({
+      title: "",
+      description: "",
+      budget: { value: "", unit: "hour" },
+      location: "Singapore",
+      commitment: { value: "", unit: "hour" },
+      period: { value: "", unit: "day" },
+    });
+  }, [setNewListing]);
+
+  const {
+    title,
+    description,
+    budget,
+    location,
+    commitment,
+    period,
+  } = newListing;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewListing((newListing) => ({
+      ...newListing,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectText = (e) => {
+    const { name, value } = e.target;
+    setNewListing((newListing) => ({
+      ...newListing,
+      [name]: { ...newListing[name], value },
+    }));
+  };
+
+  const handleSelect = (e) => {
+    const { name, value } = e.target;
+    setNewListing((newListing) => ({
+      ...newListing,
+      [name]: { ...newListing[name], unit: value },
+    }));
+  };
+
+  const onUpload = () => {
+    setSnackbar({
+      isOpen: true,
+      message: "Image uploading does not work in this demo",
+      status: "warning",
+    });
+  };
+
+  const onSubmit = () => {
+    setAddedListings((addedListings) => [
+      {
+        title,
+        description,
+        budget: budget.value + " / " + budget.unit,
+        commitment: commitment.value + " " + commitment.unit + " / week",
+        period: period.value + " " + period.unit,
+        location,
+        views: 0,
+        completed: [],
+        offers: [],
+        inProgress: [],
+      },
+      ...addedListings,
+    ]);
+
+    setSnackbar({
+      isOpen: true,
+      message: "New listing added!",
+      status: "success",
+    });
+
+    history.push("/listings");
+  };
+
+  const canPost =
+    title.trim().length > 0 &&
+    description.trim().length > 0 &&
+    budget.value.trim().length > 0 &&
+    location.trim().length > 0 &&
+    commitment.value.trim().length > 0 &&
+    period.value.trim().length > 0;
 
   return (
     <Box>
@@ -60,6 +158,8 @@ export default function NewListing() {
             className={classes.largerField}
             placeholder="Your project’s name"
             name="title"
+            value={title}
+            onChange={handleChange}
           />
         </Grid>
 
@@ -73,6 +173,8 @@ export default function NewListing() {
             className={classes.largerField}
             placeholder="A short description of the project"
             name="description"
+            value={description}
+            onChange={handleChange}
           />
         </Grid>
 
@@ -95,6 +197,8 @@ export default function NewListing() {
                   <FormField
                     placeholder="Expected remuneration"
                     name="budget"
+                    value={budget.value}
+                    onChange={handleSelectText}
                   />
                 </Grid>
                 <Grid item>
@@ -102,8 +206,10 @@ export default function NewListing() {
                 </Grid>
                 <Grid item xs={4}>
                   <MinimalSelect
-                    value="hour"
                     options={["hour", "day", "week"]}
+                    name="budget"
+                    value={budget.unit}
+                    onChange={handleSelect}
                   />
                 </Grid>
               </Grid>
@@ -117,8 +223,10 @@ export default function NewListing() {
               <label>Your current location</label>
               <Box>
                 <MinimalSelect
-                  value="Singapore"
                   options={["Singapore", "Vietnam", "Thailand", "Indonesia"]}
+                  name="location"
+                  value={location}
+                  onChange={handleChange}
                 />
               </Box>
             </Grid>
@@ -134,16 +242,23 @@ export default function NewListing() {
                   <FormField
                     placeholder="Your commitment level on this project"
                     name="commitment"
+                    value={commitment.value}
+                    onChange={handleSelectText}
+                  />
+                </Grid>
+                <Grid item xs={4}>
+                  <MinimalSelect
+                    options={["hour", "day", "week"]}
+                    value={commitment.unit}
+                    name="commitment"
+                    onChange={handleSelect}
                   />
                 </Grid>
                 <Grid item>
                   <Typography variant="h5">/</Typography>
                 </Grid>
-                <Grid item xs={4}>
-                  <MinimalSelect
-                    value="hour"
-                    options={["hour", "day", "week"]}
-                  />
+                <Grid item>
+                  <Typography variant="body1">week</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -155,12 +270,19 @@ export default function NewListing() {
               <label>Estimated time required for this project</label>
               <Grid container spacing={1} wrap="nowrap" alignItems="center">
                 <Grid item xs={8}>
-                  <FormField placeholder="Estimated time" name="period" />
+                  <FormField
+                    placeholder="Estimated time"
+                    name="period"
+                    value={period.value}
+                    onChange={handleSelectText}
+                  />
                 </Grid>
                 <Grid item xs={4}>
                   <MinimalSelect
-                    value="day"
                     options={["day", "week", "month"]}
+                    value={period.unit}
+                    name="period"
+                    onChange={handleSelect}
                   />
                 </Grid>
               </Grid>
@@ -176,7 +298,7 @@ export default function NewListing() {
                 Include relevant images to help others understand better
               </label>
               <Box>
-                <UploadButton>Upload image</UploadButton>
+                <UploadButton onClick={onUpload}>Upload image</UploadButton>
               </Box>
             </Grid>
 
@@ -198,8 +320,14 @@ export default function NewListing() {
 
         <Grid item xs={12}>
           <Box width="33%" marginRight="auto" marginLeft="auto">
-            <Button fullWidth variant="contained" color="primary">
-              Submit
+            <Button
+              disabled={!canPost}
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={onSubmit}
+            >
+              Post Listing
             </Button>
           </Box>
         </Grid>
