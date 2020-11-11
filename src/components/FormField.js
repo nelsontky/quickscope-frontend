@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     "&::placeholder": {
       color: theme.palette.text.secondary,
+      fontFamily: "inherit",
     },
   },
 }));
