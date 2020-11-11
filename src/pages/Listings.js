@@ -67,19 +67,21 @@ export default function Listings() {
             headers={["All Listings", "In Progress", "Completed"]}
           />
           <Grid container spacing={4}>
-            <Grid item xs={12} className={classes.alignRight}>
-              <Button
-                variant="text"
-                color="primary"
-                endIcon={<AddIcon />}
-                classes={{ label: classes.bold }}
-                onClick={() => {
-                  history.push(`${url}/new`);
-                }}
-              >
-                Create New
-              </Button>
-            </Grid>
+            {tabIndex === 0 && (
+              <Grid item xs={12} className={classes.alignRight}>
+                <Button
+                  variant="text"
+                  color="primary"
+                  endIcon={<AddIcon />}
+                  classes={{ label: classes.bold }}
+                  onClick={() => {
+                    history.push(`${url}/new`);
+                  }}
+                >
+                  Create New
+                </Button>
+              </Grid>
+            )}
             {tabIndex === 0
               ? listings.map((listing, i) => (
                   <Grid item xs={12} key={tabIndex + " " + i}>
