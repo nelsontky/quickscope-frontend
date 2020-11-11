@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     minHeight: theme.spacing(5),
     paddingLeft: theme.spacing(2),
+    fontFamily: "inherit",
     "&::placeholder": {
       color: theme.palette.text.secondary,
       fontFamily: "inherit",
