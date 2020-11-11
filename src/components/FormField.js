@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     resize: "none",
     border: "none",
     width: "100%",
-    height: theme.spacing(5),
+    minHeight: theme.spacing(5),
     paddingLeft: theme.spacing(2),
     "&::placeholder": {
       color: theme.palette.text.secondary,

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { useRouteMatch, useHistory, Switch, Route } from "react-router-dom";
+import React from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 // Material UI components
 import Box from "@material-ui/core/Box";
@@ -8,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import AddIcon from "@material-ui/icons/Add";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 // Custom components
 import FormField from "../../components/FormField";
@@ -42,9 +41,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewListing() {
   const classes = useStyles();
-  const history = useHistory();
-  let { path, url } = useRouteMatch();
-  const [tabIndex, setTabIndex] = useState(0);
 
   return (
     <Box>
@@ -86,8 +82,8 @@ export default function NewListing() {
           </Typography>
         </Grid>
 
-        <Grid container item spacing={1}>
-          <Grid container item xs={6} spacing={1}>
+        <Grid justify="space-between" container item>
+          <Grid container item xs={5} spacing={1}>
             <Grid item xs={12}>
               <Typography className={classes.mediumLabel} gutterBottom>
                 Budget
@@ -119,12 +115,12 @@ export default function NewListing() {
               </Typography>
 
               <label>Your current location</label>
-              <Grid item xs={12}>
+              <Box>
                 <MinimalSelect
                   value="Singapore"
                   options={["Singapore", "Vietnam", "Thailand", "Indonesia"]}
                 />
-              </Grid>
+              </Box>
             </Grid>
 
             <Grid item xs={12}>
@@ -137,7 +133,7 @@ export default function NewListing() {
                 <Grid item xs={8}>
                   <FormField
                     placeholder="Your commitment level on this project"
-                    name="description"
+                    name="commitment"
                   />
                 </Grid>
                 <Grid item>
@@ -152,9 +148,76 @@ export default function NewListing() {
               </Grid>
             </Grid>
 
+            <Grid item xs={12}>
+              <Typography className={classes.mediumLabel} gutterBottom>
+                Period
+              </Typography>
+              <label>Estimated time required for this project</label>
+              <Grid container spacing={1} wrap="nowrap" alignItems="center">
+                <Grid item xs={8}>
+                  <FormField placeholder="Estimated time" name="period" />
+                </Grid>
+                <Grid item xs={4}>
+                  <MinimalSelect
+                    value="day"
+                    options={["day", "week", "month"]}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
           </Grid>
+
+          <Grid container item xs={5} spacing={1}>
+            <Grid item xs={12}>
+              <Typography className={classes.mediumLabel} gutterBottom>
+                Upload Images (Optional)
+              </Typography>
+              <label>
+                Include relevant images to help others understand better
+              </label>
+              <Box>
+                <UploadButton>Upload image</UploadButton>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Typography className={classes.mediumLabel} gutterBottom>
+                Other remarks (Optional)
+              </Typography>
+              <label>Other relevant information</label>
+              <Box>
+                <FormField
+                  rows={10}
+                  placeholder="Include any other information here"
+                  name="remarks"
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Box width="33%" marginRight="auto" marginLeft="auto">
+            <Button fullWidth variant="contained" color="primary">
+              Submit
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Box>
   );
 }
+
+const UploadButton = withStyles({
+  root: {
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #070031",
+    boxSizing: "border-box",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "5px",
+  },
+})(({ children, ...rest }) => (
+  <Button startIcon={<CloudUploadIcon />} variant="contained" {...rest}>
+    {children}
+  </Button>
+));
