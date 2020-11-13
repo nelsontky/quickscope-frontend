@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   headerText: {
     fontWeight: theme.typography.fontWeightBold,
     marginBottom: theme.spacing(3),
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
   },
   chipsContainer: {
     marginTop: theme.spacing(2),
@@ -101,8 +101,8 @@ export default function Home() {
         justify="space-evenly"
         className={classes.filterBar}
       >
-        {Object.keys(searchFilters).map((filter) => (
-          <Grid item>
+        {Object.keys(searchFilters).map((filter, i) => (
+          <Grid item key={i}>
             <FilterDropdown
               key={filter}
               value={filters[filter]}
