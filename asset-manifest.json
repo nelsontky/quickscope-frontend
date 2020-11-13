@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/quickscope-frontend/static/js/main.e7b31cec.chunk.js",
-    "main.js.map": "/quickscope-frontend/static/js/main.e7b31cec.chunk.js.map",
+    "main.js": "/quickscope-frontend/static/js/main.07818d9d.chunk.js",
+    "main.js.map": "/quickscope-frontend/static/js/main.07818d9d.chunk.js.map",
     "runtime-main.js": "/quickscope-frontend/static/js/runtime-main.edd91e49.js",
     "runtime-main.js.map": "/quickscope-frontend/static/js/runtime-main.edd91e49.js.map",
-    "static/js/2.1480bdfd.chunk.js": "/quickscope-frontend/static/js/2.1480bdfd.chunk.js",
-    "static/js/2.1480bdfd.chunk.js.map": "/quickscope-frontend/static/js/2.1480bdfd.chunk.js.map",
+    "static/js/2.1f539f12.chunk.js": "/quickscope-frontend/static/js/2.1f539f12.chunk.js",
+    "static/js/2.1f539f12.chunk.js.map": "/quickscope-frontend/static/js/2.1f539f12.chunk.js.map",
     "index.html": "/quickscope-frontend/index.html",
-    "static/js/2.1480bdfd.chunk.js.LICENSE.txt": "/quickscope-frontend/static/js/2.1480bdfd.chunk.js.LICENSE.txt",
+    "static/js/2.1f539f12.chunk.js.LICENSE.txt": "/quickscope-frontend/static/js/2.1f539f12.chunk.js.LICENSE.txt",
     "static/media/Nelson_Avatar.7eaa7733.png": "/quickscope-frontend/static/media/Nelson_Avatar.7eaa7733.png"
   },
   "entrypoints": [
     "static/js/runtime-main.edd91e49.js",
-    "static/js/2.1480bdfd.chunk.js",
-    "static/js/main.e7b31cec.chunk.js"
+    "static/js/2.1f539f12.chunk.js",
+    "static/js/main.07818d9d.chunk.js"
   ]
 }
