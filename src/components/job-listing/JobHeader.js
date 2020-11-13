@@ -21,6 +21,7 @@ import PurpleCard from "../PurpleCard";
 
 import Tag from "../Tag";
 import IconWithText from "../IconWithText";
+import { useStore } from "../../store";
 
 const useStyles = makeStyles((theme) => ({
   favorite: {
@@ -195,6 +196,7 @@ export default function JobPreviewCard({ job }) {
 function HirerCard({ hirer }) {
   const { name, image, description } = hirer;
   const classes = useStyles();
+  const { setSnackbar } = useStore();
 
   return (
     <Card elevation={0}>
@@ -226,6 +228,13 @@ function HirerCard({ hirer }) {
           color="primary"
           classes={{ label: classes.hirerTitle }}
           fullWidth
+          onClick={() => {
+            setSnackbar({
+              isOpen: true,
+              message: "This button does not work in this demo",
+              status: "warning",
+            });
+          }}
         >{`See more jobs from ${name}`}</Button>
       </CardContent>
     </Card>
