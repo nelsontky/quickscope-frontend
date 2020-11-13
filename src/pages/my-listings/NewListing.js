@@ -248,7 +248,7 @@ export default function NewListing() {
                 </Grid>
                 <Grid item xs={4}>
                   <MinimalSelect
-                    options={["hour", "day", "week"]}
+                    options={["hour", "day"]}
                     value={commitment.unit}
                     name="commitment"
                     onChange={handleSelect}
