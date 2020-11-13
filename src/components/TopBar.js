@@ -12,6 +12,8 @@ import { makeStyles } from "@material-ui/core/styles";
 // Material UI Icons
 import PersonIcon from "@material-ui/icons/Person";
 
+import { useStore } from "../store";
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -31,12 +33,14 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 1.5),
     textDecoration: "none",
     color: theme.palette.common.white,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
 }));
 
 export default function TopBar() {
   const classes = useStyles();
+
+  const { setSnackbar } = useStore();
   return (
     <>
       <AppBar
@@ -83,8 +87,13 @@ export default function TopBar() {
           </nav>
           {/* TODO LOGIN DETECTION */}
           <IconButton
-            component={Link}
-            to="/profile"
+            onClick={() => {
+              setSnackbar({
+                isOpen: true,
+                message: "Profile page does not exist in this demo",
+                status: "warning",
+              });
+            }}
           >
             <PersonIcon style={{ color: "white" }} />
           </IconButton>
