@@ -57,7 +57,7 @@ export default function JobListing() {
     jobs.findIndex((job) => job.id === parseInt(id) + 1 + "") > -1;
   const hasPrevious =
     jobs.findIndex((job) => job.id === parseInt(id) - 1 + "") > -1;
-
+    
   const { otherInformation } = job;
 
   return (

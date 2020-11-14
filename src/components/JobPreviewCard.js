@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     width: "100%",
+    height: theme.spacing(31),
   },
   favorite: {
     color: theme.palette.primary.main,
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-line-clamp": 2,
     "-webkit-box-orient": "vertical",
     overflow: "hidden",
+  },
+  salary: {
+    overflowWrap: "anywhere",
   },
 }));
 
@@ -117,12 +121,13 @@ export default function JobPreviewCard({ job }) {
                 ))}
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item container spacing={1}>
               <Grid container wrap="nowrap">
                 <Grid item xs={6}>
                   <IconWithText
                     variant="body2"
                     IconComponent={<AttachMoneyIcon />}
+                    className={classes.salary}
                   >
                     {salary}
                   </IconWithText>
