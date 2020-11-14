@@ -18,8 +18,9 @@ export default function StateProvider({ children }) {
     commitment: { value: "", unit: "hour" },
     period: { value: "", unit: "day" },
   });
-
   const [addedListings, setAddedListings] = useState([]);
+
+  const [newApplications, setNewApplications] = useState([]);
 
   const store = {
     snackbar,
@@ -27,9 +28,12 @@ export default function StateProvider({ children }) {
 
     newListing,
     setNewListing,
-    
+
     addedListings,
     setAddedListings,
+
+    newApplications,
+    setNewApplications,
   };
 
   return <Context.Provider value={store}>{children}</Context.Provider>;

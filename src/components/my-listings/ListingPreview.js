@@ -218,6 +218,7 @@ function ListingAction({
           {offers.length > 0 && (
             <Grid item className={classes.center}>
               <GreenButton
+                variant="contained"
                 onClick={() => {
                   setIsOffer(true);
                 }}
@@ -249,6 +250,7 @@ function ListingAction({
         >
           <Grid item xs={6}>
             <GreenButton
+              variant="contained"
               onClick={() => {
                 setIsComplete(true);
               }}
@@ -401,6 +403,7 @@ function OfferCard({ listing, index, accept, reject, ...rest }) {
             </Grid>
             <Grid item>
               <GreenButton
+                variant="contained"
                 onClick={accept}
                 className={classes.marginBottom}
                 fullWidth
@@ -511,7 +514,7 @@ function CompleteDialog({ isOpen, close, listing, index, setTabIndex }) {
             </ul>
           </Grid>
           <Grid item>
-            <GreenButton onClick={complete} fullWidth>
+            <GreenButton variant="contained" onClick={complete} fullWidth>
               Complete
             </GreenButton>
           </Grid>

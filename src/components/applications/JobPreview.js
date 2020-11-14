@@ -190,6 +190,7 @@ function ApplicationAction({ status, tabIndex, setJobFields }) {
     case "Pending interview":
       return (
         <GreenButton
+          variant="contained"
           onClick={() => {
             setJobFields((jobFields) => ({
               ...jobFields,
@@ -203,6 +204,7 @@ function ApplicationAction({ status, tabIndex, setJobFields }) {
     case "Offered":
       return (
         <GreenButton
+          variant="contained"
           onClick={() => {
             setJobFields((jobFields) => ({ ...jobFields, status: "Accepted" }));
           }}

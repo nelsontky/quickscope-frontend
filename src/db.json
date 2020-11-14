@@ -692,7 +692,7 @@
     ],
     "offered": [
       {
-        "id": "28",
+        "jobId": "28",
         "title": "Java Developer",
         "description": "Collaborate in a Team-Based environment with Source Codes Management SystemsKnowledge in Java is required",
         "salary": "Undisclosed",
@@ -709,7 +709,7 @@
         }
       },
       {
-        "id": "29",
+        "jobId": "29",
         "title": "Web Developer",
         "description": "Collaborate in a Team-Based environment with Source Codes Management SystemsBasic programming skills gained from commercial role, your studies or similar",
         "salary": "Undisclosed",
@@ -743,7 +743,7 @@
         }
       },
       {
-        "id": "30",
+        "jobId": "30",
         "title": "Cloud Architect ",
         "description": "Set up cloud storage and computing systemsGood understanding of networking: TCP/IP addresses, HTTP, DNS",
         "tags": ["Linux", "Solaris", "Unix"],

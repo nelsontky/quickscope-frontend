@@ -3,15 +3,18 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme();
+const greenTheme = createMuiTheme({
+  typography: {
+    fontFamily: "Montserrat, Helvetica, Arial, sans-serif",
+  },
+  palette: { primary: { main: theme.palette.success.main } },
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.success.main,
-    "&:hover": {
-      backgroundColor: theme.palette.success.dark,
-    },
-    "&:disabled": {
-      backgroundColor: theme.palette.action.disabled,
-    },
     color: theme.palette.common.white,
   },
 }));
@@ -20,8 +23,14 @@ export default function GreenButton({ children, ...rest }) {
   const classes = useStyles();
 
   return (
-    <Button {...rest} className={clsx(rest.className, classes.root)}>
-      {children}
-    </Button>
+    <MuiThemeProvider theme={greenTheme}>
+      <Button
+        {...rest}
+        color="primary"
+        className={clsx(classes.root, rest.className)}
+      >
+        {children}
+      </Button>
+    </MuiThemeProvider>
   );
 }
