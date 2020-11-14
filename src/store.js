@@ -22,6 +22,13 @@ export default function StateProvider({ children }) {
 
   const [newApplications, setNewApplications] = useState([]);
 
+  // Portfolio
+  const [introduction, setIntroduction] = useState("");
+  const [experiences, setExperiences] = useState([]);
+  const [qualifications, setQualifications] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [skills, setSkills] = useState([])
+
   const store = {
     snackbar,
     setSnackbar,
@@ -31,6 +38,21 @@ export default function StateProvider({ children }) {
 
     addedListings,
     setAddedListings,
+
+    introduction,
+    setIntroduction,
+
+    experiences,
+    setExperiences,
+
+    qualifications,
+    setQualifications,
+
+    projects,
+    setProjects,
+
+    skills,
+    setSkills,
 
     newApplications,
     setNewApplications,

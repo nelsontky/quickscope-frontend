@@ -60,7 +60,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
       name,
       year,
       description,
-      tech,
+      tech: tech.split(",").map(t => t.trim()),
       link
     }
     addNewDetail(newDetail);
@@ -70,7 +70,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
   const e2V = (setState) => (event) => setState(event.target.value); // event to value
 
   const renderEditForm = () => (
-    <>
+    <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
       <Box style={{ display: "flex", width: "100%", flexDirection: "column" }}>
         <Box style={{ display: "flex", width: "100%", justifyContent: "space-between", marginBottom: 15 }}>
           <Box style={{ marginRight: 50 }}>
@@ -106,7 +106,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
           <TextareaAutosize
             className={classes.descriptionInput}
             rowsMin={1}
-            placeholder="Technologies used"
+            placeholder="Technologies used (separate each tech by a comma)"
             value={tech}
             onChange={e2V(setTech)}
           />
@@ -127,11 +127,11 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
         disabled={disabled}
         deleteEdit={deleteDetail(detail.id)}
       />
-    </>
+    </Box>
   )
 
   const renderDetail = () => (
-    <>
+    <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
       <Box style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <Typography className={classes.detailsText} style={{ fontWeight: "bold" }}>{name}</Typography>
@@ -142,7 +142,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
         <Typography className={clsx(classes.detailsText, classes.marginTop)}>{`Link: ${link}`}</Typography>
       </Box>
       <DetailActions setIsEdit={setIsEdit} deleteDetail={deleteDetail(detail.id)} />
-    </>
+    </Box>
   )
 
   return (

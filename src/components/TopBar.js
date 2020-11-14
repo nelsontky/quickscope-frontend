@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 
 // Material UI components
@@ -35,12 +35,20 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     fontWeight: "bold",
   },
+  activeLink: {
+    textDecoration: "underline"
+  }
 }));
 
 export default function TopBar() {
   const classes = useStyles();
+  const location = useLocation();
 
   const { setSnackbar } = useStore();
+
+  const isActive = (...pathnames) =>
+    pathnames.some(pathname => pathname === location.pathname);
+
   return (
     <>
       <AppBar
@@ -65,22 +73,29 @@ export default function TopBar() {
           <nav>
             <Typography
               component={Link}
+              to="/"
+              className={clsx(classes.link, isActive("/", "/jobs") && classes.activeLink)}
+            >
+              Home
+            </Typography>
+            <Typography
+              component={Link}
               to="/applications"
-              className={classes.link}
+              className={clsx(classes.link, isActive("/applications") && classes.activeLink)}
             >
               My Applications
             </Typography>
             <Typography
               component={Link}
               to="/listings"
-              className={classes.link}
+              className={clsx(classes.link, isActive("/listings") && classes.activeLink)}
             >
               My Listings
             </Typography>
             <Typography
               component={Link}
               to="/portfolio"
-              className={classes.link}
+              className={clsx(classes.link, isActive("/portfolio") && classes.activeLink)}
             >
               My Portfolio
             </Typography>

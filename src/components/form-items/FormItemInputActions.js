@@ -15,7 +15,7 @@ const buttonStyle = {
 
 export default function FormItemInputActions({ saveDetail, deleteEdit, disabled }) {
   return (
-    <Box style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", height: "100%" }}>
+    <Box style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", height: "100%" }}>
       <Box style={{ display: "flex", justifyContent: "space-between", width: 65, marginLeft: 20, marginTop: 2 }}>
         <Button onClick={() => disabled ? null : saveDetail()}>
           <SaveIcon style={{ ...buttonStyle, fill: disabled ? "#B3B3B3" : "#070031" }} />

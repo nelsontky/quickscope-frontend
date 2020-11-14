@@ -25,7 +25,7 @@ export default function ProjectCard({
   name,
   year,
   description,
-  tech,
+  tech = [],
   link
 }) {
   const classes = useStyles();
