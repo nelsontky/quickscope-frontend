@@ -79,8 +79,8 @@ export default function ProfileCard() {
           {`${location} (Local time: ${currentDateHour}:${currentDateMinutes} GMT +8)`}
         </Grid>
         <Grid container className={classes.tagsContainer} spacing={1}>
-          {techStack.map(tech => (
-            <Grid item>
+          {techStack.map((tech, index) => (
+            <Grid item key={index}>
               <Tag
                 variant="outlined"
                 label={tech}
