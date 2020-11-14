@@ -95,21 +95,21 @@ export default function Portfolio() {
         </Grid>
         <Grid item className={classes.cards}>
           <Typography className={classes.sectionHeader}>Skills</Typography>
-          {skills.map(skill => <SkillCard {...skill} />)}
+          {skills.map((skill, index) => <SkillCard {...skill} key={index} />)}
         </Grid>
         <Grid item className={classes.cards}>
           <Typography className={classes.sectionHeader}>Qualifications</Typography>
-          {qualifications.map(qualification => <QualificationCard {...qualification} />)}
+          {qualifications.map((qualification, index) => <QualificationCard {...qualification} key={index} />)}
         </Grid>
       </Grid>
       <Grid container style={{ flex: 5 }} direction="column" spacing={3}>
         <Grid item>
           <Typography className={classes.sectionHeader}>My Employment</Typography>
-          {experiences.map(experience => <ExperienceCard {...experience} />)}
+          {experiences.map((experience, index) => <ExperienceCard {...experience} key={index} />)}
         </Grid>
         <Grid item>
           <Typography className={classes.sectionHeader}>My Side Projects</Typography>
-          {projects.map(project => <ProjectCard {...project} />)}
+          {projects.map((project, index) => <ProjectCard {...project} key={index} />)}
         </Grid>
       </Grid>
     </Grid>
