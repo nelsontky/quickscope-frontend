@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import ScrollToTop from "./components/ScrollToTop";
 import StateProvider from "./store";
 
 import {
@@ -29,6 +30,7 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <Router basename={process.env.PUBLIC_URL}>
         <StateProvider>
+          <ScrollToTop />
           <App />
         </StateProvider>
       </Router>

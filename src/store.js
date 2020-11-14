@@ -18,8 +18,9 @@ export default function StateProvider({ children }) {
     commitment: { value: "", unit: "hour" },
     period: { value: "", unit: "day" },
   });
-
   const [addedListings, setAddedListings] = useState([]);
+
+  const [newApplications, setNewApplications] = useState([]);
 
   // Portfolio
   const [introduction, setIntroduction] = useState("");
@@ -52,6 +53,8 @@ export default function StateProvider({ children }) {
 
     skills,
     setSkills
+    newApplications,
+    setNewApplications,
   };
 
   return <Context.Provider value={store}>{children}</Context.Provider>;

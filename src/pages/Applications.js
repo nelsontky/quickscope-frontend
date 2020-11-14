@@ -13,6 +13,8 @@ import JobPreview from "../components/applications/JobPreview";
 // Utils
 import db from "../db.json";
 
+import { useStore } from "../store";
+
 const allApplications = db.applications;
 
 const useStyles = makeStyles((theme) => ({
@@ -30,9 +32,11 @@ export default function Applications() {
 
   const [tabIndex, setTabIndex] = useState(0);
 
+  const { newApplications } = useStore();
+
   const applications =
     tabIndex === 0
-      ? allApplications.inProgress
+      ? [...newApplications, ...allApplications.inProgress]
       : tabIndex === 1
       ? allApplications.offered
       : tabIndex === 2
