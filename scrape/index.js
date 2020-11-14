@@ -38,26 +38,20 @@ function getRandomInt(min, max) {
     await currentTab.waitForSelector(IMAGE_CONTAINER);
     const $ = cheerio.load(await currentTab.content());
 
-    const id = i + 1;
+    const id = i + 1 + "";
     const title = $(
       ".JobOverviewStyle__JobOverviewHeadingStyle-sc-1y8r2ks-4"
     ).text();
-    const ulFirstItem = $(
-      "#container > div > div > div.Opportunitysc__JobDetailContainer-sc-1gsvee3-14.ghAfay > div:nth-child(4) > div > div > div.CollapsibleStyle__CollapsibleBody-sc-133mwvh-3.jZAnJE.collapsible-content > span > div > div > div > div > ul:nth-child(3) > li.public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-reset.public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR > div > span > span"
-    ).text();
-    const olFirstItem = $(
-      "#container > div > div > div.Opportunitysc__JobDetailContainer-sc-1gsvee3-14.ghAfay > div:nth-child(4) > div > div > div.CollapsibleStyle__CollapsibleBody-sc-133mwvh-3.jZAnJE.collapsible-content > span > div > div > div > div > ol > li.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-reset.public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR > div > span > span"
-    ).text();
-    const description =
-      olFirstItem.length === 0 || olFirstItem.length > 200
-        ? ulFirstItem
-        : olFirstItem;
+    const description = $(".public-DraftEditor-content li:nth-child(2)").text();
     const tags = $(".tag-content")
       .map(function (i, e) {
         return $(this).text();
       })
-      .get();
-    const salary = $(".Opportunitysc__FlexBox-sc-1gsvee3-25").text();
+      .get()
+      .filter((tag) => tag.length < 8)
+      .slice(0, 4);
+    let salary = $(".Opportunitysc__FlexBox-sc-1gsvee3-25").text();
+    salary = salary.length === 0 ? "Undisclosed" : salary;
     const commitment = $("p[data-gtm-job-type]").text();
     const period = getRandomInt(2, 41) + " weeks";
     const location = "Singapore";
