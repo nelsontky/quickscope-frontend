@@ -53,7 +53,7 @@ export default function StateProvider({ children }) {
 
     skills,
     setSkills,
-
+    
     newApplications,
     setNewApplications,
   };
