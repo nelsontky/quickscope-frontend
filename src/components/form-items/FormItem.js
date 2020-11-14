@@ -133,14 +133,11 @@ export default function FormItem({
           className={classes.textArea}
           rowsMin={6}
           value={intro}
-          onChange={(e) => {
-            // console.log(e.target.value)
-            setIntro(e.target.value)
-          }}
+          onChange={(e) => setIntro(e.target.value)}
           rowsMax={6}
         />
         : <Grid container className={classes.inputsContainer} direction="column">
-          {details.length === 0 ? renderEmptyState() : renderDetails()}
+          {data.length === 0 ? renderEmptyState() : renderDetails()}
         </Grid>
       }
     </Box >
