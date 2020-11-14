@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "flex-start",
     height: "100%",
   },
   actionsContainer: {

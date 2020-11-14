@@ -68,7 +68,7 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
   }
 
   const renderEditForm = () => (
-    <>
+    <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
       <Box style={{ display: "flex", width: "100%", flexDirection: "column" }}>
         <Box style={{ display: "flex", width: "100%", justifyContent: "space-between", marginBottom: 15 }}>
           <Box style={{ marginRight: 50 }}>
@@ -126,11 +126,11 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
         disabled={disabled}
         deleteEdit={deleteDetail(detail.id)}
       />
-    </>
+    </Box>
   )
 
   const renderDetail = () => (
-    <>
+    <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
       <Box style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <Box style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
           <Box style={{ display: "flex" }}>
@@ -148,7 +148,7 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
         <Typography className={classes.detailsText}>{`Technologies used: ${tech}`}</Typography>
       </Box>
       <DetailActions setIsEdit={setIsEdit} deleteDetail={deleteDetail(detail.id)} />
-    </>
+    </Box>
   )
 
   return (
