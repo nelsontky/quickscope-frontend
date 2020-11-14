@@ -96,7 +96,7 @@ export default function TopBar() {
               to="/listings"
               className={clsx(
                 classes.link,
-                isActive("/listings") && classes.activeLink
+                isActive("/listings", "/listings/new") && classes.activeLink
               )}
             >
               My Listings
