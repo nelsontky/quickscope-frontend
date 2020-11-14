@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
   },
   activeLink: {
-    textDecoration: "underline"
-  }
+    textDecoration: "underline",
+  },
 }));
 
 export default function TopBar() {
@@ -47,7 +47,7 @@ export default function TopBar() {
   const { setSnackbar } = useStore();
 
   const isActive = (...pathnames) =>
-    pathnames.some(pathname => pathname === location.pathname);
+    pathnames.some((pathname) => pathname === location.pathname);
 
   return (
     <>
@@ -74,28 +74,40 @@ export default function TopBar() {
             <Typography
               component={Link}
               to="/"
-              className={clsx(classes.link, isActive("/", "/jobs") && classes.activeLink)}
+              className={clsx(
+                classes.link,
+                isActive("/", "/jobs") && classes.activeLink
+              )}
             >
               Home
             </Typography>
             <Typography
               component={Link}
               to="/applications"
-              className={clsx(classes.link, isActive("/applications") && classes.activeLink)}
+              className={clsx(
+                classes.link,
+                isActive("/applications") && classes.activeLink
+              )}
             >
               My Applications
             </Typography>
             <Typography
               component={Link}
               to="/listings"
-              className={clsx(classes.link, isActive("/listings") && classes.activeLink)}
+              className={clsx(
+                classes.link,
+                isActive("/listings") && classes.activeLink
+              )}
             >
               My Listings
             </Typography>
             <Typography
               component={Link}
               to="/portfolio"
-              className={clsx(classes.link, isActive("/portfolio") && classes.activeLink)}
+              className={clsx(
+                classes.link,
+                isActive("/portfolio") && classes.activeLink
+              )}
             >
               My Portfolio
             </Typography>
