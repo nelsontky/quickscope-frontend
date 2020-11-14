@@ -61,7 +61,7 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
       startYear,
       endYear,
       description,
-      tech
+      tech: tech.split(",").map(t => t.trim())
     }
     addNewDetail(newDetail);
     setIsEdit(false);
@@ -116,7 +116,7 @@ export default function ExperienceFormCard({ detail, addNewDetail, deleteDetail 
         <TextareaAutosize
           className={classes.descriptionInput}
           rowsMin={1}
-          placeholder="Technologies used"
+          placeholder="Technologies used (separate each tech by a comma)"
           value={tech}
           onChange={e2V(setTech)}
         />

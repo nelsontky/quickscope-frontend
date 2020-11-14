@@ -21,15 +21,37 @@ export default function StateProvider({ children }) {
 
   const [addedListings, setAddedListings] = useState([]);
 
+  // Portfolio
+  const [introduction, setIntroduction] = useState("");
+  const [experiences, setExperiences] = useState([]);
+  const [qualifications, setQualifications] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [skills, setSkills] = useState([])
+
   const store = {
     snackbar,
     setSnackbar,
 
     newListing,
     setNewListing,
-    
+
     addedListings,
     setAddedListings,
+
+    introduction,
+    setIntroduction,
+
+    experiences,
+    setExperiences,
+
+    qualifications,
+    setQualifications,
+
+    projects,
+    setProjects,
+
+    skills,
+    setSkills
   };
 
   return <Context.Provider value={store}>{children}</Context.Provider>;

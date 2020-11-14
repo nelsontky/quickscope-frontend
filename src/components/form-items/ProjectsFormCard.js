@@ -60,7 +60,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
       name,
       year,
       description,
-      tech,
+      tech: tech.split(",").map(t => t.trim()),
       link
     }
     addNewDetail(newDetail);
@@ -106,7 +106,7 @@ export default function ProjectsFormCard({ detail, addNewDetail, deleteDetail })
           <TextareaAutosize
             className={classes.descriptionInput}
             rowsMin={1}
-            placeholder="Technologies used"
+            placeholder="Technologies used (separate each tech by a comma)"
             value={tech}
             onChange={e2V(setTech)}
           />

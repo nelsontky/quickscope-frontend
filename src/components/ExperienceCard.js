@@ -21,7 +21,7 @@ export default function ExperienceCard({
   startYear,
   endYear,
   description,
-  tech
+  tech = []
 }) {
   const classes = useStyles();
 

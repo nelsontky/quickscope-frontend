@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // Material UI components
@@ -30,8 +30,10 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "100%",
     maxWidth: 994,
     borderWidth: 0,
+    padding: 10,
     backgroundColor: "transparent",
     boxShadow: "inset 0px 2px 4px rgba(0, 0, 0, 0.25)",
+    fontFamily: theme.typography.fontFamily
   },
   inputsContainer: {
     width: "100%",
@@ -47,15 +49,28 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function FormItem({ label, description, textarea, FormCard }) {
+export default function FormItem({
+  label,
+  description,
+  textarea,
+  FormCard,
+  details = [],
+  setDetails,
+  intro,
+  setIntro
+}) {
   const classes = useStyles();
-  const [details, setDetails] = useState([]);
   const [newEditId, setNewEditId] = useState(0); // if id = 0, that means there is no new edit
+  const [data, setData] = useState(details);
+
+  useEffect(() => {
+    setData(details);
+  }, [details]);
 
   const addNewEdit = () => {
-    if (details.length === 0 || Object.keys(details[details.length - 1]).length !== 0) {
-      const id = Math.trunc(Math.random() * 1000);
-      setDetails([...details, { id }]);
+    if (details.length === 0 || Object.keys(details[details.length - 1]).length > 1) {
+      const id = Math.trunc(Math.random() * 10000);
+      setData([...details, { id }]);
       setNewEditId(id);
     }
   }
@@ -77,7 +92,7 @@ export default function FormItem({ label, description, textarea, FormCard }) {
     }
   }
 
-  const renderDetails = () => details.map(detail => (
+  const renderDetails = () => data.map(detail => (
     <FormCard
       detail={detail}
       addNewDetail={addNewDetail}
@@ -111,7 +126,13 @@ export default function FormItem({ label, description, textarea, FormCard }) {
         }
       </Box>
       {textarea
-        ? <TextareaAutosize className={classes.textArea} rowsMin={6} rowsMax={6} />
+        ? <TextareaAutosize
+          className={classes.textArea}
+          rowsMin={6}
+          value={intro}
+          onChange={(e) => setIntro(e.target.value)}
+          rowsMax={6}
+        />
         : <Grid container className={classes.inputsContainer} direction="column">
           {details.length === 0 ? renderEmptyState() : renderDetails()}
         </Grid>
