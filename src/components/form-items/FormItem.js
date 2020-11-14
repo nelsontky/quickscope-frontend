@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     backgroundColor: "transparent",
     boxShadow: "inset 0px 2px 4px rgba(0, 0, 0, 0.25)",
-    fontFamily: theme.typography.fontFamily
+    fontFamily: theme.typography.fontFamily,
+    resize: "none"
   },
   inputsContainer: {
     width: "100%",

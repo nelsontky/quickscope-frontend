@@ -68,7 +68,7 @@ export default function Portfolio() {
       </Grid>
       <Grid item>
         <Typography variant="h5">
-          {`Click "Edit Portfolio" to update your portfolio now`}
+          Click "Edit Portfolio" to update your portfolio now
         </Typography>
       </Grid>
       <Grid item>
@@ -78,8 +78,9 @@ export default function Portfolio() {
           style={{ textTransform: "unset" }}
           component={Link}
           to="/edit-portfolio"
+          startIcon={<EditIcon className={classes.editIcon} />}
         >
-          <EditIcon className={classes.editIcon} />Edit Portfolio
+          Edit Portfolio
         </Button>
       </Grid>
     </Grid>
