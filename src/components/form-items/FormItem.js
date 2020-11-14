@@ -65,7 +65,9 @@ export default function FormItem({
   const [data, setData] = useState(details);
 
   useEffect(() => {
-    setData(details);
+    if (setDetails) {
+      setData(details);
+    }
   }, [details]);
 
   const addNewEdit = () => {
@@ -131,7 +133,10 @@ export default function FormItem({
           className={classes.textArea}
           rowsMin={6}
           value={intro}
-          onChange={(e) => setIntro(e.target.value)}
+          onChange={(e) => {
+            // console.log(e.target.value)
+            setIntro(e.target.value)
+          }}
           rowsMax={6}
         />
         : <Grid container className={classes.inputsContainer} direction="column">
