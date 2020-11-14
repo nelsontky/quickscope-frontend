@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(3),
     right: theme.spacing(3),
     backgroundColor: "white",
+    "&:hover": {
+      backgroundColor: "white",
+    },
   },
 }));
 
@@ -129,7 +132,7 @@ export default function JobListing() {
           variant="outlined"
           className={classes.applied}
         >
-          Applied! Click to view application
+          Applied! Click to view applications
         </GreenButton>
       )}
       <Grid className={classes.root} container direction="column" spacing={3}>
