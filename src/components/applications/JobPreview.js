@@ -104,14 +104,16 @@ export default function JobPreview({ job, tabIndex }) {
                       {`Commitment: ${commitment}`}
                     </IconWithText>
                   </Grid>
-                  <Grid item xs={4}>
-                    <IconWithText
-                      variant="body2"
-                      IconComponent={<SearchIcon />}
-                    >
-                      {`Vacancies: ${vacancies}`}
-                    </IconWithText>
-                  </Grid>
+                  {!status.includes("Completed") && (
+                    <Grid item xs={4}>
+                      <IconWithText
+                        variant="body2"
+                        IconComponent={<SearchIcon />}
+                      >
+                        {`Vacancies: ${vacancies}`}
+                      </IconWithText>
+                    </Grid>
+                  )}
                 </Grid>
                 <Grid container wrap="nowrap" spacing={1}>
                   <Grid item xs={4}>
@@ -130,14 +132,16 @@ export default function JobPreview({ job, tabIndex }) {
                       {`Location: ${location}`}
                     </IconWithText>
                   </Grid>
-                  <Grid item xs={4}>
-                    <IconWithText
-                      variant="body2"
-                      IconComponent={<TouchAppOutlinedIcon />}
-                    >
-                      {`Applications: ${applications}`}
-                    </IconWithText>
-                  </Grid>
+                  {!status.includes("Completed") && (
+                    <Grid item xs={4}>
+                      <IconWithText
+                        variant="body2"
+                        IconComponent={<TouchAppOutlinedIcon />}
+                      >
+                        {`Applications: ${applications}`}
+                      </IconWithText>
+                    </Grid>
+                  )}
                 </Grid>
               </Grid>
             </Grid>
