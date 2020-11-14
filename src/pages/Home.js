@@ -18,6 +18,7 @@ import SearchBar from "../components/SearchBar";
 import Tag from "../components/Tag";
 
 import { splitCamelCase } from "../utils/general-utils";
+import { useStore } from "../store";
 import db from "../db.json";
 
 const searchFilters = db.filters;
@@ -84,6 +85,7 @@ export default function Home() {
       0
     ) !== 0;
 
+  const { setSnackbar } = useStore();
   return (
     <Box>
       <Box textAlign="center">
@@ -94,6 +96,14 @@ export default function Home() {
       <SearchBar
         className={classes.searchBar}
         placeholder="Find by Skills, Jobs, Companies, or Location"
+        onSubmit={(e) => {
+          e.preventDefault();
+          setSnackbar({
+            isOpen: true,
+            message: "Search does not work in this demo!",
+            status: "warning",
+          });
+        }}
       />
       <Grid
         container
