@@ -111,6 +111,19 @@ export default function TopBar() {
             >
               My Portfolio
             </Typography>
+            <Typography
+              component={Link}
+              className={classes.link}
+              onClick={() => {
+                setSnackbar({
+                  isOpen: true,
+                  message: "Chat function does not work in this demo",
+                  status: "warning",
+                });
+              }}
+            >
+              Chat
+            </Typography>
           </nav>
           {/* TODO LOGIN DETECTION */}
           <IconButton
