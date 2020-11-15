@@ -49,10 +49,10 @@
       "XML",
       "iOS"
     ],
-    "jobType": ["Full Time", "Part Time", "Internship"],
+    "jobType": ["Remote", "Physical"],
     "location": ["Singapore", "Vietnam", "Indonesia"],
     "salary": ["< 1000 per month", "1000 - 3000 per month", "> 3000 per month"],
-    "commitment": ["1 - 3 months", "3 months - 2 years", "> 2 years"],
+    "commitment": ["Full Time", "Part Time", "Internship"],
     "experience": ["Entry Level", "Experienced"]
   },
   "profile": {
