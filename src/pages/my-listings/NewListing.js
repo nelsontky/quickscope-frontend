@@ -12,7 +12,7 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 // Custom components
 import FormField from "../../components/FormField";
-import MinimalSelect from "../../components/MinimaSelect";
+import MinimalSelect from "../../components/MinimalSelect";
 
 import { useStore } from "../../store";
 
