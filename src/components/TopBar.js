@@ -125,7 +125,6 @@ export default function TopBar() {
               Chat
             </Typography>
           </nav>
-          {/* TODO LOGIN DETECTION */}
           <IconButton
             onClick={() => {
               setSnackbar({
